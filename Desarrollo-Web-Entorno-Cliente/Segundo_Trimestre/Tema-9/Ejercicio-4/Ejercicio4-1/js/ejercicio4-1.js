@@ -15,7 +15,7 @@ function cargar(){
 
         }else{
             var ajax = obtainXMLHttpRequest();
-            ajax.open('POST', '/enviarComentario.php', true);
+            ajax.open('POST', 'http://localhost/2DAW/Desarrollo-Web-Entorno-Cliente/Segundo_Trimestre/Tema-9/Ejercicio-4/Ejercicio4-1/enviarComentario.php', true);
             ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             ajax.onreadystatechange = function(){
@@ -23,6 +23,7 @@ function cargar(){
                     //                    document.getElementById('comentarios').innerHTML = '<img src="cargando.gif" alt="Cargando> CARGANDO...';
                 }
                 if(ajax.readyState==4){
+                    console.log('Prueba2');
                     if(ajax.status==200){
                         console.log(ajax.responseText);
                         var resultado = JSON.parse(ajax.responseText);
@@ -56,7 +57,7 @@ function cargar(){
 
                             document.getElementById('formulario').reset();   
                         }else{
-                            
+                            document.getElementById('error').style.display = 'inline';
                             
                         }
                     } 

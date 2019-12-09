@@ -9,7 +9,7 @@ function cargar(){
         if(this.value.length > 0){
             var id = this.id;
             var ajax = obtainXMLHttpRequest();
-            ajax.open('POST', 'http://localhost/2DAW/2DAW/Desarrollo-Web-Entorno-Cliente/Segundo_Trimestre/Tema-9/Ejercicio-4/Ejercicio4-2/comprobarDatos.php', true);
+            ajax.open('POST', 'http://localhost/2DAW/Desarrollo-Web-Entorno-Cliente/Segundo_Trimestre/Tema-9/Ejercicio-4/Ejercicio4-2/comprobarDatos.php', true);
             ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             ajax.onreadystatechange = function(){
                 if(ajax.readyState==2){
