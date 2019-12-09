@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Documento sin título</title>
+        <script src="ud6ej3.js"></script>
+        <style>
+            body{
+                padding-left: 5em;
+            }
+            h3, h5 {
+                margin: 0;
+                margin-bottom: .5em;
+                padding: 0;
+            }
+            #formulario {
+                display: inline-block;
+                width: 40%;
+            }
+            #formulario .colIzq {
+                display: inline-block;
+                width: 10em;
+                height: 1.4em;
+            }
+            #formulario textarea {
+                height: 10em;
+                width: 100%;
+            }
+            #formulario .errorCampo {
+                padding: 0 .3em;
+                background-color: rgba(255,157,158,.5);
+                color: rgba(219,50,50,1.00);
+                display: none;
+            }
+            #botones {
+                margin-top: .5em;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h3>Formulario de registro</h3>
+        <h5>*  todos los campos son obligatorios</h5>
+        <form action="http://google.com" id="formulario">
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label for="nombre" class="colIzq">Nombre</label>
+                <input type="text" name="nombre" id="nombre">
+                <span class="errorCampo" id="errorNombre"></span>
+                <br>
+                <label for="apellido1" class="colIzq">Primer apellido</label>
+                <input type="text" name="apellido1" id="apellido1">
+                <span class="errorCampo" id="errorApellido1"></span>
+                <br>
+                <label for="apellido2" class="colIzq">Segundo apellido</label>
+                <input type="text" name="apellido2" id="apellido2">
+                <span class="errorCampo" id="errorApellido2"></span>
+                <br>
+                <label for="fechaNacimiento" class="colIzq">Fecha de nacimiento</label>
+                <input type="date" name="fechaNacimiento" id="fechaNacimiento">
+                <span class="errorCampo" id="errorFechaNacimiento"></span>
+                <br>
+                <span class="colIzq">Soy (seleccione uno)</span>
+                <label for="mujer">mujer</label>
+                <input type="radio" name="sexo" id="mujer" value="mujer">
+                <label for="hombre">hombre</label>
+                <input type="radio" name="sexo" id="hombre" value="hombre">
+                <span class="errorCampo" id="errorSexo"></span>
+                <br>
+                <label for="nacionalidad" class="colIzq">Nacionalidad</label>
+                <select name="nacionalidad" id="nacionalidad">
+                    <option value="-1">Seleciona una opcion</option>
+                    <option value="España">España</option>
+                    <option value="Francia">Francia</option>
+                    <option value="Alemania">Alemania</option>
+                    <option value="Italia">Italia</option>
+                    <option value="Reino unido">Reino unido</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <span class="errorCampo" id="errorNacionalidad"></span>
+            </fieldset>
+            <fieldset>
+                <legend>Datos de acceso</legend>
+                <label for="usuario" class="colIzq">Nombre de usuario</label>
+                <input type="text" name="usuario" id="usuario">
+                <span class="errorCampo" id="errorUsuario"></span>
+                <br>
+                <label for="email1" class="colIzq">E-mail</label>
+                <input type="text" name="email1" id="email1">
+                <span class="errorCampo" id="errorEmail1"></span>
+                <br>
+                <label for="email2" class="colIzq">Repite el e-mail</label>
+                <input type="text" name="email2" id="email2">
+                <span class="errorCampo" id="errorEmail2"></span>
+                <br>
+                <label for="contrasenya" class="colIzq">Contraseña</label>
+                <input type="text" name="contrasenya" id="contrasenya">
+                <span class="errorCampo" id="errorContrasenya1"></span>
+                <br>
+                <label for="contrasenya2" class="colIzq">Repite la contraseña</label>
+                <input type="text" name="contrasenya2" id="contrasenya2">
+                <span class="errorCampo" id="errorContrasenya2"></span>
+            </fieldset>
+            <fieldset>
+                <legend>Currículo</legend>
+                Habilidades (marque al menos una) <span class="errorCampo" id="errorHabilidades"></span>
+                <br>
+                <input type="checkbox" name="habilidades" id="HTML" value="HTML">
+                <label for="HTML">HTML</label>
+                <br>
+                <input type="checkbox" name="habilidades" id="CSS" value="CSS">
+                <label for="CSS">CSS</label>
+                <br>
+                <input type="checkbox" name="habilidades" id="JavaScript" value="JavaScript">
+                <label for="JavaScript">JavaScript</label>
+                <br>
+                <input type="checkbox" name="habilidades" id="PHP" value="PHP">
+                <label for="PHP">PHP</label>
+                <br>
+                <input type="checkbox" name="habilidades" id="Laravel" value="Laravel">
+                <label for="Laravel">Laravel</label>
+
+                <br>
+                Idiomas (marque al menos uno) <span class="errorCampo" id="errorIdiomas"></span>
+                <br>
+                <input type="checkbox" name="idioma" id="espanyol" value="espanyol">
+                <label for="espanyol" class="colIzq">Español</label>
+                Bajo<input type="range" name="nivelEspanyol" id="nivelEspanyol">Alto
+                <br>
+                <input type="checkbox" name="idioma" id="valenciano" value="valenciano">
+                <label for="valenciano" class="colIzq">Valenciano</label>
+                Bajo<input type="range" name="nivelValenciano" id="nivelValenciano">Alto
+                <br>
+                <input type="checkbox" name="idioma" id="ingles" value="inglles">
+                <label for="ingles" class="colIzq">Inglés</label>
+                Bajo<input type="range" name="nivelIngles" id="nivelIngles">Alto
+            </fieldset>
+            <fieldset>
+                <legend>Carta de presentación</legend>
+                <label for="comentario">Comentario</label>
+                <br>
+                <textarea name="comentario" id="comentario"></textarea>
+                <span class="errorCampo" id="errorComentario"></span>
+            </fieldset>
+
+            <div id="botones">
+                <input type="submit" value="Registrarse" id='registrarse'>
+                <input type="reset" value="Resetear">
+            </div>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="personajes.js"></script>
+<script src="ud7ej3.js"></script>
+<script>
+
+/*document.addEventListener("DOMContentLoaded", function() {
+	
+	personajes = JSON.parse(personajes);
+	console.log(personajes);
+	
+	for(var i=0; i<5; i++) {
+		document.body.innerHTML += personajes[i].name +'<br>';
+	}
+});*/
+</script>
+
+<style>
+	body{
+		width: 60%;
+		margin: 2em auto;
+	}
+	h1 {
+		font-size: 3em;
+	}
+	article {
+		margin: 1.5em 0;
+	}
+	.personaje .avatar, .personaje .datos {
+		display: table-cell;
+		margin: 0;
+		padding: 0;
+		font-size: 1.5em;
+	}
+	.personaje .avatar {
+		width: 40%;
+		text-align: center;
+		border-left: .2em solid orange;
+		border-bottom: .2em solid orange;
+	}
+	.avatar img {
+		padding: .5em;		
+	}
+	.personaje .datos {
+		vertical-align: top;
+		width: 60%;
+		border-right: .2em solid orange;
+		border-bottom: .2em solid orange;
+	}
+	.personaje .datos .info {
+		padding: .5em;
+	}
+	.nombre {
+		border-radius: 1em 1em 0 0;
+		background-color: orange;
+		text-align: center;
+		font-size: 3em;
+		padding: .15em;
+	}
+	.alive {
+		color: rgba(0,221,25,1.00);
+	}
+	.death {
+		color: rgba(130,130,130,1.00);
+	}
+	.unknown {
+		color: rgba(204,0,3,1.00);
+	}
+	.genero {
+		height: 1em;
+		width: auto;
+	}
+</style>
+</head>
+
+<body>
+	
+	<h1>Rick y Morty</h1>
+	<section>
+		
+	</section>
+
+</body>
+</html>
+

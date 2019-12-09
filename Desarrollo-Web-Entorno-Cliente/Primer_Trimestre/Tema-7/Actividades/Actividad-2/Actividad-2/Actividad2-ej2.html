@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Documento sin título</title>
+<script src="ud7ej2-2.js"> </script>
+<style>
+	body{
+		width: 60%;
+		margin: 2em auto;
+	} 
+	#formulario .colIzq {
+		display: inline-block;
+		width: 10em;
+		height: 1.4em;
+	}
+	#formulario textarea {
+		height: 10em;
+		width: 100%;
+	}
+	#botones {
+		text-align: center;
+	}
+	.boton {
+		margin-right: .5em;
+		padding: 1em 0;
+		width: 8em;
+		background-color: gainsboro;
+		border-radius: 1em;
+		font-size: 1em;
+	}
+	.boton:hover {
+		box-shadow: .3em .3em darkgray;
+		font-weight: bolder;
+		cursor: pointer;
+	}
+	section {
+		margin-top: 2em;
+	}
+	.comentario {
+		border-radius: 1em;
+		border: solid .2em rgba(255,143,0,.65);
+		margin-top: .5em;
+	}
+	.comentario .datos {
+		background-color: rgba(255,143,0,.65);
+		margin-bottom: .8em;
+		padding: .5em 0;
+		border-radius: .7em .7em 0 0;
+	}
+	.datos .autor, .datos .fecha {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+	}
+	.datos .autor {
+		width: 47%;
+		padding-left: 1%;
+	}
+	.datos .fecha {
+		text-align: right;
+		width: 47%;
+		padding-right: 1%;
+	}
+	.comentario .texto {
+		padding: 0 1em 1em;;
+	}
+	.comentario a {
+		text-decoration: none;
+		color: rgba(80,80,80,1.00);
+	}
+	.comentario a:hover {
+		font-weight: bolder;
+	}
+</style>
+</head>
+
+<body>
+
+<h2>Comenta la noticia</h2>
+<form id="formulario">
+	<label for="nombre" class="colIzq">Nombre</label>
+	<input type="text" name="nombre" id="nombre">
+	<br>
+	<label for="mail" class="colIzq">E-mail</label>
+	<input type="text" name="mail" id="mail">
+	<br>
+	<label for="comentario">Comentario</label>
+	<br>
+	<textarea name="comentario" id="comentario"></textarea>
+	
+	<div id="botones">
+		<input type="submit" value="Comentar" id='comentar' class="boton">
+		<input type="reset" value="Resetear" class="boton">
+	</div>
+</form>
+
+
+<section>
+	<article class="comentario">
+		<div class="datos">
+			<span class="autor"><a href="mailto:analo@mail.com">Ana López</a></span>
+			<span class="fecha">19:30 - 18 octubre 2019</span>
+		</div>
+		<div class="texto">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus saepe consequuntur fugit dolorem, placeat rem nisi eius, expedita suscipit hic eos necessitatibus soluta? Aperiam nihil, placeat ducimus suscipit earum ut?
+		</div>
+	</article>
+	<article class="comentario">
+		<div class="datos">
+			<span class="autor"><a href="mailto:lucasma@gmail.com">Lucas Martínez</a></span>
+			<span class="fecha">8:45 - 22 octubre 2019</span>
+		</div>
+		<div class="texto">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus saepe consequuntur fugit dolorem, placeat rem nisi eius, expedita suscipit hic eos necessitatibus soluta? Aperiam nihil, placeat ducimus suscipit earum ut?
+		</div>
+	</article>
+</section>
+
+</body>
+</html>

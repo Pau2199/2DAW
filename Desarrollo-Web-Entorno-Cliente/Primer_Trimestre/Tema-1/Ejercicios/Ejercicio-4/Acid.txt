@@ -1,0 +1,5 @@
+Acid Test 1 --> Todos los navegadores muestran la misma imagen sin ningún cambio apreciable.
+
+Acid Test 2 -->Todos los navegadores muestran la misma imagen , menos en el Google Chrome que se puede apreciar como la nariz se hace mas pequeña de lo que deberia ser.
+
+Acid Test 3 --> El mejor es el edge el cual da el 100%  y en el resto de navegadores dan 97%.

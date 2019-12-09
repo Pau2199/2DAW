@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width, user-scalable=1.0">
+        <style>
+            body{
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            header{
+                background-color: darkorange;
+                color: white;
+                margin-left: 5%;
+                font-size: 100px;
+                width: 90%;
+                text-align: center;
+
+            }
+            ul li{
+                list-style: none;
+                display: inline;
+                padding: 10%;
+            }
+            nav{
+                background-color: gray;
+                border: 2px solid black;
+                width: 100%;
+                margin-bottom: 2%;
+                margin-top: 1%;
+            }
+            a{
+                text-decoration: none;
+                text-align: center;
+            }
+            section{
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-template-areas: "N1 N1 N1" "C1 C2 C3" "C4 C4 ." "C5 C6 C7";
+                text-align: center;
+                justify-content: space-around;
+                margin-top: 3%;
+                margin-bottom: 3%;
+            }
+
+            article{
+                margin-bottom: 3%;
+                border: 3px solid blue;
+                padding: 3%;
+            }
+            nav{
+                grid-area: N1;
+            }
+            article:nth-child(1){
+                grid-area: C1;
+            }
+
+            article:nth-child(2){
+                grid-area: C2;
+
+            }
+
+            article:nth-child(3){
+                grid-area: C3;
+            }
+
+            article:nth-child(4){
+                grid-area: C4;
+            }
+
+            article:nth-child(5){
+                grid-area: C5;
+            }
+
+            article:nth-child(6){
+                grid-area: C6;
+            }
+            article:nth-child(7){
+                grid-area: C7;
+            }
+
+            img{
+                width: 300px;
+                height: 300px;
+                text-align: center;
+            }
+            p{
+                font-family: monospace;
+                font-weight: bold;
+            }
+            footer{
+                display: flex;
+                background-color: darkorange;
+                color: white;
+                margin-top: 10%;
+                margin-left: 5%;
+                font-size: 30px;
+                width: 90%;
+                padding: 10px;
+                justify-content: space-between;
+                font-family: fantasy;
+            }
+            @media only screen and (max-width: 1200px){
+                header{
+                    background-color: darkorange;
+                    color: white;
+                    margin-left: 5%;
+                    font-size: 40px;
+                    width: 80%;
+                    text-align: center;
+
+                }
+                img{
+                    width: 220px;
+                    height: 220px;
+                }
+                section{
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                    grid-template-areas:
+                        "N1 N1 N1"
+                        "C1 C2 ." 
+                        "C3 C5 ."
+                        "C4 C4 ."
+                        "C6 C7 .";
+                    text-align: center;
+                    justify-content: space-around;
+                    margin-top: 3%;
+                    margin-bottom: 3%;
+                }
+                ul li{
+                    list-style: none;
+                    padding: 5%;
+                }
+                footer{
+                    display: flex;
+                    background-color: darkorange;
+                    color: white;
+                    margin-top: 10%;
+                    margin-left: 5%;
+                    font-size: 20px;
+                    width: 90%;
+                    padding: 10px;
+                    justify-content: space-between;
+                    font-family: fantasy;
+                }
+            }
+            @media only screen and (max-width: 600px){
+                header{
+                    background-color: darkorange;
+                    color: white;
+                    margin-left: 5%;
+                    font-size: 25px;
+                    width: 75%;
+                    text-align: center;
+
+                }
+                section{
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                    grid-template-areas:
+                        "N1 N1 N1"
+                        "C1 . ."
+                        "C2 . ."
+                        "C3 . ."
+                        "C4 . ."
+                        "C5 . ."
+                        "C6 . ."
+                        "C7 . ."
+                        "C8 . ."
+                        "C9 . ."
+                        "C10 . .";
+                    text-align: center;
+                    margin-top: 3%;
+                    margin-bottom: 3%;
+                }
+                ul li{
+                    list-style: none;
+                    font-size: 12px;
+                    padding: 1%;
+                }
+                nav{
+                    background-color: gray;
+                    border: 2px solid black;
+                    width: 100%;
+                    margin-bottom: 2%;
+                    margin-top: 1%;
+                }
+                footer{
+                    display: flex;
+                    background-color: darkorange;
+                    color: white;
+                    margin-top: 10%;
+                    margin-left: 5%;
+                    font-size: 15px;
+                    width: 70%;
+                    padding: 10px;
+                    justify-content: space-between;
+                    font-family: fantasy;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            Tienda de Moviles - Paüito
+        </header>
+        <main>
+            <section>
+                <nav>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Apple</a></li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Xiaomi</a></li>
+                    </ul>
+                </nav>
+                <article>
+                    <img src="iphone11.jpg" alt="iphone">
+                    <p>Iphone 11 Pro Max</p>
+                    <input type="button" name="botonCompra" value="Comprar!">
+                </article>
+                <article>
+                    <img src="samsungS10.jpg" alt="samsungS10">
+                    <p>Samsung Galaxy S10</p>
+                    <input type="button" name="botonCompra" value="Comprar!">            
+                </article>
+                <article>
+                    <img src="bymax.jpg" alt="samsungS10">    
+                </article>
+                <article>
+                    <img src="redmiNote7.jpg" alt="samsungS10">
+                    <p>Redmi Note 7 Pro</p>
+                    <input type="button" name="botonCompra" value="Comprar!">            
+                </article>
+                <article>
+                    <img src="huaweiP30.jpg" alt="samsungS10">
+                    <p>Huawei P30 Pro</p>
+                    <input type="button" name="botonCompra" value="Comprar!">            
+                </article>
+                <article>
+                    <img src="iphoneXR.jpg" alt="samsungS10">
+                    <p>Iphone XR</p>
+                    <input type="button" name="botonCompra" value="Comprar!">            
+                </article>
+                <article>
+                    <img src="s9.jpg" alt="samsungS10">
+                    <p>Samsung Galaxy S9</p>
+                    <input type="button" name="botonCompra" value="Comprar!">            
+                </article>
+            </section>
+        </main>
+        <footer>
+            <span>Telefono de Contacto: 657458521</span>
+            <span>Copyright - 2019</span>
+        </footer>
+    </body>
+</html>

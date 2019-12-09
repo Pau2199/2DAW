@@ -1,0 +1,68 @@
+http://tutiendaweb.com/api/categoria --> Devuelve todas las categorias que tiene la pagina web.
+	{
+		"categorias":[
+			{
+				"idCategoria": 1,
+				"nombreCategoria": ordenadores
+			},
+		]
+	}
+
+http://tutiendaweb.com/api/categoria/{a-z} --> Devuelve todas los datos de la subcategoria que especifique el usuario.
+
+	{
+		"categoria":
+			{
+				"idCategoria":2
+				"nombreCategoria:" moviles
+			},
+		"resultados":[
+			"idSubCategoria":1
+			"nombeSubcategoria":Apple
+			"idProducto":3
+			"nombreProducto":IphoneXR
+			"precio":800
+			"anyoLanzamiento":2018
+		],
+	}
+
+http://tutiendaweb.com/api/categoria/{a-z}/{a-z} --> Duelve los datos del producto y sus comentarios
+
+	{
+		"subCategoria":
+			{
+				"idSubCategoria":3
+				"nombreCategoria:" moviles
+			},
+		"resultados":[
+			"idProducto":1
+			"nombreDelProducto":IphoneXR
+			"Precio":800
+			"anyoDeLanzamiento":2018
+			"comentarioDelProducto":comentario
+		],
+	}
+
+http://tutiendaweb.com/api/{a-z}/{a-z}/{a-z}--> Duelve todos los datos de los productos que coincidan con esa busqueda
+	{
+		"categorias":
+			{
+				"idCategoria": 1,
+				"nombreCategoria": ordenadores
+			},
+		"subCategoria":
+			{
+				"idSubCategoria":3
+				"nombreCategoria:" moviles
+			},
+
+		"producto":[
+			"idProducto":3
+			"nombreProducto":IphoneXR
+			"precio":800
+			"anyoLanzamiento":2018
+		],
+	}
+
+
+		

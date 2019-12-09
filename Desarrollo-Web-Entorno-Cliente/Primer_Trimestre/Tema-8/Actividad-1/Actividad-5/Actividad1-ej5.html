@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Documento sin título</title>
+<script src="ud8ej5.js"></script>
+<script src="cookie.js"></script>
+<style>
+	body{
+		padding-left: 5em;
+	}
+	h3, h5 {
+		margin: 0;
+		margin-bottom: .5em;
+		padding: 0;
+	}
+	#formulario {
+		display: inline-block;
+		width: 40%;
+	}
+	#formulario .colIzq {
+		display: inline-block;
+		width: 10em;
+		height: 1.4em;
+	}
+	#formulario textarea {
+		height: 10em;
+		width: 100%;
+	}
+	#botones {
+		margin-top: .5em;
+	}
+</style>
+</head>
+
+<body>
+	
+	<h3>Formulario de registro</h3>
+	<h5>*  todos los campos son obligatorios</h5>
+	<form action="" id="formulario">
+		<fieldset>
+			<legend>Datos personales</legend>
+			<label for="nombre" class="colIzq">Nombre</label>
+			<input type="text" name="nombre" id="nombre">
+			<br>
+			<label for="apellido1" class="colIzq">Primer apellido</label>
+			<input type="text" name="apellido1" id="apellido1">
+			<br>
+			<label for="apellido2" class="colIzq">Segundo apellido</label>
+			<input type="text" name="apellido2" id="apellido2">
+			<br>
+			<label for="fechaNacimiento" class="colIzq">Fecha de nacimiento</label>
+			<input type="date" name="fechaNacimiento" id="fechaNacimiento">
+			<br>
+			<span class="colIzq">Soy (seleccione uno)</span>
+			<label for="mujer">mujer</label>
+			<input type="radio" name="sexo" id="mujer" value="mujer">
+			<label for="hombre">hombre</label>
+			<input type="radio" name="sexo" id="hombre" value="hombre">
+			<br>
+			<label for="nacionalidad" class="colIzq">Nacionalidad</label>
+			<select name="nacionalidad" id="nacionalidad">
+				<option value="España">España</option>
+				<option value="Francia">Francia</option>
+				<option value="Alemania">Alemania</option>
+				<option value="Italia">Italia</option>
+				<option value="Reino unido">Reino unido</option>
+				<option value="Otro">Otro</option>
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>Datos de acceso</legend>
+			<label for="usuario" class="colIzq">Nombre de usuario</label>
+			<input type="text" name="usuario" id="usuario">
+			<br>
+			<label for="email1" class="colIzq">E-mail</label>
+			<input type="text" name="email1" id="email2">
+			<br>
+			<label for="email2" class="colIzq">Repite el e-mail</label>
+			<input type="text" name="email2" id="email2">
+			<br>
+			<label for="contrasenya" class="colIzq">Contraseña</label>
+			<input type="text" name="contrasenya" id="contrasenya">
+			<br>
+			<label for="contrasenya2" class="colIzq">Repite la contraseña</label>
+			<input type="text" name="contrasenya2" id="contrasenya2">
+		</fieldset>
+		<fieldset>
+			<legend>Currículo</legend>
+			Habilidades (marque al menos una)
+			<br>
+			<input type="checkbox" name="habilidades" id="HTML" value="HTML">
+			<label for="HTML">HTML</label>
+			<br>
+			<input type="checkbox" name="habilidades" id="CSS" value="CSS">
+			<label for="CSS">CSS</label>
+			<br>
+			<input type="checkbox" name="habilidades" id="JavaScript" value="JavaScript">
+			<label for="JavaScript">JavaScript</label>
+			<br>
+			<input type="checkbox" name="habilidades" id="PHP" value="PHP">
+			<label for="PHP">PHP</label>
+			<br>
+			<input type="checkbox" name="habilidades" id="Laravel" value="Laravel">
+			<label for="Laravel">Laravel</label>
+			
+			<br>
+			Idiomas (marque al menos uno)
+			<br>
+			<input type="checkbox" name="idioma" id="espanyol" value="espanyol">
+			<label for="espanyol" class="colIzq">Español</label>
+			Bajo<input type="range" name="nivelEspanyol" id="nivelEspanyol">Alto
+			<br>
+			<input type="checkbox" name="idioma" id="valenciano" value="valenciano">
+			<label for="valenciano" class="colIzq">Valenciano</label>
+			Bajo<input type="range" name="nivelValenciano" id="nivelValenciano">Alto
+			<br>
+			<input type="checkbox" name="idioma" id="ingles" value="inglles">
+			<label for="ingles" class="colIzq">Inglés</label>
+			Bajo<input type="range" name="nivelIngles" id="nivelIngles">Alto
+		</fieldset>
+		<fieldset>
+			<legend>Carta de presentación</legend>
+			<label for="comentario">Comentario</label>
+			<br>
+			<textarea name="comentario" id="comentario"></textarea>
+		</fieldset>
+		
+		<div id="botones">
+			<input type="submit" value="Registrarse" id="enviar">
+			<input type="reset" value="Resetear">
+		</div>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+/*function comprobarBarco(num , numero){
+    var fila = num;
+    var columna = numero;
+    var casillas = 0;
+    var barco = false;
+    var agua = false;
+    while ((agua == false) && (barco == false) && (fila  < 10)){
+        if (tablero[fila][columna] == -1){
+            casillas++
+            fila++
+        }else{
+            if(tablero[fila][columna] == 0){
+                agua = true;
+            }else{
+                barco = true;
+            }
+        }
+    }
+
+    if(barco == false){
+        agua = false;
+        fila = num;
+        while ((agua == false) && (barco == false) && (fila >= 0)){
+            if (tablero[fila][columna] == -1){
+                casillas++
+                fila--
+            }else{
+                if(tablero[fila][columna] == 0){
+                    agua = true;
+                }else{
+                    barco = true;
+                }
+            }
+        }
+    }
+
+    if(barco == false){
+        agua = false;
+        fila = num;
+        while ((agua == false) && (barco == false) && (columna < 10)){
+            if (tablero[fila][columna] == -1){
+                casillas++
+                columna++
+            }else{
+                if(tablero[fila][columna] == 0){
+                    agua = true;
+                }else{
+                    barco = true;
+                }
+            }
+        }
+    }
+
+    if(barco == false){
+        agua = false;
+        columna = numero;
+        while ((agua == false) && (barco == false) && (columna >= 0)){
+            if (tablero[fila][columna] == -1){
+                casillas++
+                columna--
+            }else{
+                if(tablero[fila][columna] == 0){
+                    agua = true;
+                }else{
+                    barco = true;
+                }
+            }
+        }
+    }
+
+    if (barco == false){
+        console.log(casillas);
+        return casillas;
+    }else{
+        return casillas = 0;
+    }
+}*/

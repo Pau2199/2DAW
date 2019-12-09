@@ -1,0 +1,40 @@
+#info{
+    text-align: center;
+    font-family: fantasy;
+    color: darkcyan;
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+    color: red;
+    font-family:monospace;
+}
+a:hover{
+    color: blue;
+}
+nav{
+    text-align: center;
+}
+#contenedor{
+    width: 900px;
+    overflow: visible;
+    padding: 0px;	
+}
+
+#foto{
+    margin-left: 20%;
+    float: left;
+
+}
+#texto{
+    float: left;
+    width: 40%;
+    margin-left: 10%;
+    font-weight: bold;
+}
+#titulo{
+    text-align: center;
+    font-family:serif;
+    color:darkorange;
+    font-size: 30px;
+}

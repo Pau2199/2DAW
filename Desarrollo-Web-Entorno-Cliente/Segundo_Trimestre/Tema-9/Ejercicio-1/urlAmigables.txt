@@ -1,0 +1,2 @@
+http://tutiendaweb.com/categoria --> Devuelve todas las categorias que tiene la pagina web
+http://tutiendaweb.com/categoria/ --> $valor es las subcategorias que existen en la tienda que pueden ser o 

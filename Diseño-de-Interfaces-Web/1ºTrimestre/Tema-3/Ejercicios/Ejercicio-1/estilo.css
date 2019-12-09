@@ -1,0 +1,68 @@
+#titulo1{
+    color:cadetblue;
+    font-size: 30px;
+    font-weight: bold;
+}
+#titulo2{
+    color:blue;
+    font-size: 30px;
+    font-weight: bold;
+}
+p{
+    font-size: 10px;
+    font-family: cursive;
+}
+#palabra1{
+    color: red;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+#palabra2{
+    color: orange;
+}
+#palabra3{
+    text-decoration: underline;
+    color: red;
+    font-style: italic;
+}
+#palabra4{
+    color: blue;
+}
+#palabra5{
+    color: purple;
+}
+
+table, td , tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 10px;
+    padding: 5px;
+}
+.naranja{
+    font-weight: bold;
+    color: orange;
+}
+.rojo{
+    color: red;
+    font-weight: bold;
+}
+.verde{
+    color:green;
+    font-style: italic;
+}
+caption{
+    color: blue;
+    font-style: italic;
+}
+table ~ p{
+    color: yellowgreen;
+    font-size: 15px;
+}
+table ~ p span{
+    color: hotpink;
+}
+table ~ p span + span{
+    color: green;
+    text-decoration: underline;
+}
+

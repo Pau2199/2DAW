@@ -1,0 +1,92 @@
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+/* Header/Logo Title */
+header {
+    background: #E49523;
+    color: white;
+    font-size: 80px;
+    flex-direction: row;
+    text-align: center;
+}
+
+.logo{
+    width: 190px;
+    height: 190px;
+    text-align: center;
+}
+
+
+img{
+    width: 300px;
+    height: 270px; 
+}
+
+/* Page Content */
+.content {padding:20px;}
+
+/*Productos*/
+
+section{
+    display: grid;
+    grid-template-columns: repeat(3,500px);
+    grid-template-areas: "c1 c2 c3" 
+        "c5 c5 ." 
+        "c7 c8 c9";
+    margin-left: 55px;
+}
+article{
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+.posicionamientoImagenes{
+    border: 1px solid gray;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+article:nth-child(1){
+    grid-area: c1;
+}
+article:nth-child(2){
+    grid-area: c2;
+}
+article:nth-child(3){
+    grid-area: c3; 
+}
+article:nth-child(4){
+    grid-area: c5;
+}
+article:nth-child(5){
+    grid-area: c7;
+}
+
+article:nth-child(6){
+    grid-area: c8;
+}
+article:nth-child(7){
+    grid-area: c9;
+}
+
+span{
+    color:grey;
+    font-weight: bold;
+    margin: 10px;
+}
+
+footer{
+    background: gray;
+    color: white;
+    text-align: left;
+    height: 100px
+}
+
+footer p{
+    margin-top: 20px;
+}
+

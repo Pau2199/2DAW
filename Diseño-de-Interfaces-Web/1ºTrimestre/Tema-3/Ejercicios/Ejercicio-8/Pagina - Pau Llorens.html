@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            *{margin: 0px; padding: 0px;}
+            ul,ul li{
+                margin:0;
+                padding:0;
+                list-style:none
+            }
+            h1,h2,h3,p,form{margin:0;padding:0}
+            a{
+                text-decoration: none;
+            }
+
+            /*Posicionamiento Cabecera*/
+            #contenedorCabezera{
+                display: table;
+                border: 1px solid black;
+                margin-left: 25%;
+                margin-right: 30px;
+                width: 50%;
+                padding: 10px;
+            }
+            #contenidosCabezera{
+                display: table-row;
+            }
+            #principalCabezera, #secundarioCabezera, #lateralCabezera {
+                display: table-cell;
+            }
+            #secundarioCabezera{
+                border: none;
+                width: 0%;
+            }
+            #principalCabezera {
+                border: none;
+                width: 50%;
+            }
+            #lateralCabezera {
+                border: none;
+                width: 5%;
+            }
+
+            /*Posicionamiento menu*/
+            nav{
+                border: 1.5px solid black;
+                width: 50.25%;
+                margin-left: 25%;
+                margin-right: 23%;
+                padding: 0.5em;
+                margin-bottom: 0.5em;
+
+            }
+
+            /*Posicionamiento contenido principal*/
+            #contenedorInfo{
+                display: table;
+                border: 1px solid black;
+                margin-left: 25%;
+                margin-right: 30px;
+                width: 50%;
+            }
+            #contenidosInfo{
+                display: table-row;
+            }
+            #principalInfo, #secundarioInfo, #lateralInfo {
+                display: table-cell;
+                padding-left: 10px;
+            }
+            #secundarioInfo{
+                width: 5%;
+                border-left: 1px solid black
+            }
+            #principalInfo {
+                width: 25%;
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+            }
+            #lateralInfo{
+                width: 5%;
+                border-right: 1px solid black;
+            }
+
+            /*Posicionamiento Footer*/
+            #contenedorFooter{
+                display: table;
+                border: 1px solid black;
+                margin-left: 25%;
+                margin-right: 30px;
+                width: 50%;
+                padding: 10px;
+            }
+            #contenidosFooter{
+                display: table-row;
+            }
+            #principalFooter, #secundarioFooter, #lateralFooter {
+                display: table-cell;
+            }
+            #secundarioFooter{
+                border: none;
+                width: 0%;
+            }
+            #principalFooter {
+                border: none;
+                width: 30%;
+            }
+            #lateralFooter {
+                border: none;
+                width: 5%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id="contenedorCabezera">
+                <div id="contenidosCabezera">
+                    <div id="secundarioCabezera">
+                        <h2> LOGOTIPO </h2>
+                    </div>
+                    <div id="principalCabezera"></div>
+                    <div id="lateraCabezeral">
+                        <form action="#" method="post">
+                            Buscar &nbsp; <input name="busqueda" type="text" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <a href="#">Lorem</a>
+            <a href="#">Ipsum</a>
+            <a href="#">Dolor</a>
+            <a href="#">Sit</a>
+            <a href="#">Amet</a>
+        </nav>
+        <div id="contenedorInfo">
+            <div id="contenidosInfo">
+                <div id="secundarioInfo">
+                    <aside>
+                        <a href="#">Noticias</a>
+                        <p><span>dd/mm/aaaa</span> <a href="#">Lorem ipsum dolor sit amet</a></p>
+                        <p><span>dd/mm/aaaa</span> <a href="#">Consectetuer adipiscing elit</a></p>
+                        <p><span>dd/mm/aaaa</span> <a href="#">Donec molestie nunc eu sapien</a></p>
+                        <p><span>dd/mm/aaaa</span> <a href="#">Maecenas aliquam dolor eget metus</a></p>
+                        <p><span>dd/mm/aaaa</span> <a href="#">Fusce tristique lorem id metus</a></p>
+                        <h3><a href="#">Enlaces relacionados</a></h3>
+                        <ul>
+                            <li><a href="#">Proin placerat</a></li>
+                            <li><a href="#">Nulla in felis</a></li>
+                            <li><a href="#">Nam luctus</a></li>
+                        </ul>
+                        <p> &nbsp; </p>
+                        <p> &nbsp; </p>
+                        <h3><a href="#">Publicidad</a></h3>
+                        <p>Etiam fermentum, nisl tincidunt blandit interdum, massa velit posuere dolor, sed euismod sem odio at mi.</p>
+                        <p>Duis porta placerat arcu. Nullam felis pede, commodo vel, suscipit a, molestie vel, felis. Maecenas mattis est vel est.</p>
+                        <p><a href="#">Seguir leyendo...</a></p>
+                    </aside>
+                </div>
+                <div id="principalInfo">
+                    <main>
+                        <section>
+                            <article>
+                                <h2>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h2>
+                                <p>Nullam est lacus, suscipit ut, dapibus quis, condimentum ac, risus. Vivamus vestibulum,ipsum sollicitudin faucibus pharetra, dolor metus fringilla dui, vel aliquet pede diam tempor tortor.</p>
+                                <p>Vestibulum pulvinar urna et quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam vel turpis vitae dui imperdiet laoreet. Quisque eget ipsum.</p>
+                                <p>Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
+                                <p><a href="#">Seguir leyendo...</a></p>
+                                <h2>Vivamus lobortis turpis ac ante fringilla faucibus</h2>
+                                <p>Quisque eget ipsum. Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
+                                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam dictum hendrerit neque. Mauris id ligula non elit mattis semper. Fusce arcu ipsum, tempus eget, tincidunt at, imperdiet in, mi.</p>
+                                <p>Sed fermentum cursus dolor. Aenean a diam. Phasellus feugiat. Donec tempor dignissim sem.</p>
+                                <p><a href="#">Seguir leyendo...</a></p>
+                            </article>
+                        </section>
+                    </main>
+                </div>
+                <div id="lateralInfo">
+                    <aside>
+                        <h2>Phasellus blandit</h2>
+                        <p>Praesent sodales imperdiet augue. Mauris lorem felis, semper eu, tincidunt eu, sollicitudin eget, sem. Nulla facilisi. Morbi ut enim ut enim ultricies dapibus.</p>
+                        <p><a href="#">Seguir leyendo...</a></p>
+
+                        <h2>Nullam vel turpis</h2>
+                        <p>Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
+                        <p><a href="#">Seguir leyendo...</a></p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="contenedorFooter">
+                <div id="contenidosFooter">
+                    <div id="secundarioFooter">
+                        <p>
+                            <a href="#">Nulla</a> |
+                            <a href="#">Pharetra</a> |
+                            <a href="#">Luctus</a> |
+                            <a href="#">Ipsum</a> |
+                            <a href="#">Proin</a> |
+                            <a href="#">Placerat</a> |
+                        </p>
+                    </div>
+                    <div id="principalFooter"></div>
+                    <div id="lateraFooter">
+                        <h4> &copy; Copyright Lorem ipsum </h4>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

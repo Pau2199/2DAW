@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: rgba(64,68,102,1.00);
+	color: white;
+}
+article {
+	border: white 2px solid;
+	padding: .5em;
+	margin: 1em;
+}
+h3 {
+	margin-top: .3em;
+	color: rgba(193,92,92,1.00);
+}
