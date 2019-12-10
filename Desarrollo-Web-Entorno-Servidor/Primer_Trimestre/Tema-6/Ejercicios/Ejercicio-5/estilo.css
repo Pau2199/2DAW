@@ -1,0 +1,9 @@
+.hero{
+    background: url('imagenHero.jpg') center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 0.5%;
+}
