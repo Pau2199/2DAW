@@ -1,3 +1,34 @@
+<?php
+$contrasenyaMal = false;
+$campoVacio = false;
+if(isset($_POST['registrarse'])){
+    if(strlen($_POST['nombre']) != 0 || strlen($_POST['apellido1']) != 0 || strlen($_POST['apellido2']) != 0 || strlen($_POST['usuario']) != 0 || strlen($_POST['contrasenya']) != 0 || strlen($_POST['rcontrasenya']) != 0){
+        if($_POST['contrasenya'] == $_POST['rcontrasenya']){
+            require_once 'conexionBD.php';
+
+            try{
+                $consulta = $conexion->prepare('INSERT INTO topsecret (nombre, pApellido, sApellido, fNacimiento, usuario, cElectronico, contrasenya) VALUES (?,?,?,?,?,?,?);');
+                $consulta->bindParam(1, $_POST['nombre']);
+                $consulta->bindParam(2, $_POST['apellido1']);
+                $consulta->bindParam(3, $_POST['apellido2']);
+                $consulta->bindParam(4, $_POST['fnac']);
+                $consulta->bindParam(5, $_POST['usuario']);
+                $consulta->bindParam(6, $_POST['mail']);
+                $consulta->bindParam(7, $_POST['contrasenya']);
+                $consulta->execute();
+            }catch(Exception $ex){
+                echo $ex->getMessage();
+            }
+        }else{
+            $contrasenyaMal = true;
+        }
+    }else{
+        $campoVacio = true;
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,9 +41,17 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
+        <pre>POST => <?php print_r($_POST) ?></pre>
+        <pre>$contrasenyaMal => '<?php print_r($contrasenyaMal) ?>'</pre>
         <?php require_once 'cabeceraMenu.php' ?>
         <h3 class="titulo">Formulario de Registro</h3>
-        <form action="registro.php">
+        <?php if($contrasenyaMal) : ?>
+        <div> Las contraseñas deben ser iguales</div>
+        <?php endif ?>
+        <?php if($campoVacio) : ?>
+        <div> No puede estar ningun campo vacio</div>
+        <?php endif ?>
+        <form action="registro.php" method="POST">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
