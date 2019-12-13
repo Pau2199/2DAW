@@ -25,7 +25,8 @@ $(function(){
         }
 
         for(var i=primero ; i<ultimo; i++){
-            var article = $('<article>').attr('class', 'personaje'); article.append($('<div>').attr('class','nombre').html(todosPersonajes[i].name));
+            var article = $('<article>').attr('class', 'personaje'); 
+            article.append($('<div>').attr('class','nombre').html(todosPersonajes[i].name));
             var divImagen = $('<div>').attr('class', 'avatar');
             article.append(divImagen.append($('<img>').attr({
                 src : todosPersonajes[i].image,
@@ -33,8 +34,8 @@ $(function(){
             })));
             var divDatos = $('<div>').attr('class', 'datos');
             var divInfo = $('<div>').attr('class', 'info');
-            divInfo.append('Genero: ' + todosPersonajes[i].gender + '<br>');
-            divInfo.append('Origin: ' + todosPersonajes[i].origin.name + ' ');
+            divInfo.append('Especie: ' + todosPersonajes[i].species + '<br> Genero: ' + todosPersonajes[i].gender + 
+                           '<br> Origin: ' + todosPersonajes[i].origin.name + '  ');
             divInfo.append($('<img>').attr({
                 src : todosPersonajes[i].gender + '.png',
                 alt : todosPersonajes[i].gender,
