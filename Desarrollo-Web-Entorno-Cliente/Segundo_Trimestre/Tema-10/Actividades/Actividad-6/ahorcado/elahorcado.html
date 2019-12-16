@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>El ahoracado</title>
+	<link rel="stylesheet" href="css/estilo.css">	
+</head>
+
+<body>
+
+	<div class="grid-container">
+		<div class="" id="header">El ahorcado</div>
+		<div class="centrado" id="menu">
+			<div id="menuInicio">
+				<button id="manual">Introduce palabra</button>
+				<button id="bbdd">Cargar de la base de datos</button>
+				<div id="extra">
+					<form action="#" id="opciones">
+						fácil:<input type="radio" name="dificultad" value="0" class="dificultad">
+						normal:<input type="radio" name="dificultad" value="1" class="dificultad" checked>
+						difícil:<input type="radio" name="dificultad" value="2" class="dificultad">
+					</form>
+				</div>
+			</div>
+			<div id="partidaPersonalizada">
+				<form id="formPalabra">
+					<label for="campopalabra">Introduce una palabra: </label>
+					<input type="text" name="campopalabra" id="campopalabra">
+					<input type="submit" value="Empezar" id="empezar">
+				</form>
+			</div>
+			<div id="menuPartida">
+				<button id="resetear">Empezar de nuevo</button>
+			</div>
+		</div>
+		<div class="centrado" id="partida">
+			<img src="img/1.png" alt="ahorcado">
+		</div>
+		<div id="abecedario">
+			<div id="panelLetras" class="grid-abecedario">
+				<!--  TODO: 	Eliminar estos div y añadirlos con una consulta AJAX a la BBDD -->
+				<div class="grid-letra">a</div><div class="grid-letra">b</div><div class="grid-letra">c</div><div class="grid-letra">d</div><div class="grid-letra">e</div><div class="grid-letra">f</div><div class="grid-letra">g</div><div class="grid-letra">h</div><div class="grid-letra">i</div><div class="grid-letra">j</div><div class="grid-letra">k</div><div class="grid-letra">l</div><div class="grid-letra">m</div><div class="grid-letra">n</div><div class="grid-letra">ñ</div><div class="grid-letra">o</div><div class="grid-letra">p</div><div class="grid-letra">q</div><div class="grid-letra">r</div><div class="grid-letra">s</div><div class="grid-letra">t</div><div class="grid-letra">u</div><div class="grid-letra">v</div><div class="grid-letra">w</div><div class="grid-letra">x</div><div class="grid-letra">y</div><div class="grid-letra">z</div>
+			</div>
+			<div id="letraSeleccionada">
+				
+			</div>
+		</div>
+		<div class="centrado" id="letras">
+			<form action="#" id="laPalabra">
+				<label for="solucion">Solución:</label>
+				<input type="text" name="solucion" id="solucion">
+				<input type="submit" value="Acertar" id="acertar">
+			</form>
+			<table id="palabra">
+				<tr id="filaLetras">
+					<!--  TODO: 	Eliminar esta fila y crearla con una consulta AJAX a la BBDD -->
+					<td>a</td><td>h</td><td>o</td><td>r</td><td>c</td><td>a</td><td>d</td><td>o</td>
+				</tr>
+			</table>
+		</div>
+		<div class="" id="footer">
+			<div id="infoCurso">Desarrollo Web en Entorno Cliente 2019-20</div>
+			<div id="autor">
+				<!--  TODO: Pon en este div tu nombre  -->
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
