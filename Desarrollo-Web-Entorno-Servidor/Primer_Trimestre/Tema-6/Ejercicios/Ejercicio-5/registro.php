@@ -5,9 +5,9 @@ if(isset($_POST['registrarse'])){
     if(strlen($_POST['nombre']) != 0 || strlen($_POST['apellido1']) != 0 || strlen($_POST['apellido2']) != 0 || strlen($_POST['usuario']) != 0 || strlen($_POST['contrasenya']) != 0 || strlen($_POST['rcontrasenya']) != 0){
         if($_POST['contrasenya'] == $_POST['rcontrasenya']){
             require_once 'conexionBD.php';
-
+            echo $_POST['fnac'];
             try{
-                $consulta = $conexion->prepare('INSERT INTO topsecret (nombre, pApellido, sApellido, fNacimiento, usuario, cElectronico, contrasenya) VALUES (?,?,?,?,?,?,?);');
+                $consulta = $conexion->prepare('INSERT INTO usuario (nombre, pApellido, sApellido, fNacimiento, usuario, cElectronico, contrasenya, rol) VALUES (?,?,?,?,?,?,?,?);');
                 $consulta->bindParam(1, $_POST['nombre']);
                 $consulta->bindParam(2, $_POST['apellido1']);
                 $consulta->bindParam(3, $_POST['apellido2']);
@@ -15,7 +15,8 @@ if(isset($_POST['registrarse'])){
                 $consulta->bindParam(5, $_POST['usuario']);
                 $consulta->bindParam(6, $_POST['mail']);
                 $consulta->bindParam(7, $_POST['contrasenya']);
-                $consulta->execute();
+                $consulta->bindParam(8, 'admin');
+                echo $consulta->execute();
             }catch(Exception $ex){
                 echo $ex->getMessage();
             }
@@ -42,7 +43,6 @@ if(isset($_POST['registrarse'])){
     </head>
     <body>
         <pre>POST => <?php print_r($_POST) ?></pre>
-        <pre>$contrasenyaMal => '<?php print_r($contrasenyaMal) ?>'</pre>
         <?php require_once 'cabeceraMenu.php' ?>
         <h3 class="titulo">Formulario de Registro</h3>
         <?php if($contrasenyaMal) : ?>
@@ -60,19 +60,19 @@ if(isset($_POST['registrarse'])){
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="nombre">Nombre</label>
                                 <div class="cold-md-9 mt-1">
-                                    <input type="text" name="nombre" id="nombre">
+                                    <input type="text" name="nombre" id="nombre" value="pau">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="apellido1">Primer Apellido</label>
                                 <div class="cold-md-9 mt-3">
-                                    <input type="text" name="apellido1" id="apellido1">
+                                    <input type="text" name="apellido1" id="apellido1" value="llorens">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="apellido2">Segundo Apellido</label>
                                 <div class="cold-md-9 mt-3">
-                                    <input type="text" name="apellido2" id="apellido2">
+                                    <input type="text" name="apellido2" id="apellido2" value="martinez">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -89,31 +89,32 @@ if(isset($_POST['registrarse'])){
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="usuario">Usuario</label>
                                 <div class="cold-md-9 mt-1">
-                                    <input type="text" name="usuario" id="usuario">
+                                    <input type="text" name="usuario" id="usuario" value="pau21">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="mail">Correo Electronico</label>
                                 <div class="cold-md-9 mt-3">
-                                    <input type="text" name="mail" id="mail">
+                                    <input type="text" name="mail" id="mail" value="pau9990@gmail.com">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="contrasenya">Contraseña</label>
                                 <div class="cold-md-9 mt-1">
-                                    <input type="password" name="contrasenya" id="contrasenya">
+                                    <input type="password" name="contrasenya" id="contrasenya" value="pau21">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="rcontrasenya">Repita la contraseña</label>
                                 <div class="cold-md-9 mt-3">
-                                    <input type="password" name="rcontrasenya" id="rcontrasenya">
+                                    <input type="password" name="rcontrasenya" id="rcontrasenya" value="pau21">
                                 </div>
                             </div>
                         </fieldset>
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="rol" id="rol" value="admin">
             <div class="text-center mb-4">
                 <input type="submit" class="btn btn-info btn-lg" value="Registrarse" id="registrarse" name="registrarse">
                 <input type="reset" class="btn btn-info btn-lg" value="Borrar todo" id="borrar" name="borrar">
