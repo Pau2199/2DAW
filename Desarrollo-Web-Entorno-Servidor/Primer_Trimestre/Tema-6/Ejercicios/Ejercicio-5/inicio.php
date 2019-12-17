@@ -11,5 +11,6 @@
     </head>
     <body>
         <?php require_once 'cabeceraMenu.php' ?>
+        <h1>PRUEBA HOLA</h1>
     </body>
     </html>

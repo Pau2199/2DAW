@@ -15,7 +15,7 @@ if(isset($_POST['registrarse'])){
                 $consulta->bindParam(5, $_POST['usuario']);
                 $consulta->bindParam(6, $_POST['mail']);
                 $consulta->bindParam(7, $_POST['contrasenya']);
-                $consulta->bindParam(8, 'admin');
+                $consulta->bindParam(8, $_POST['rol']);
                 echo $consulta->execute();
             }catch(Exception $ex){
                 echo $ex->getMessage();
@@ -114,7 +114,7 @@ if(isset($_POST['registrarse'])){
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="rol" id="rol" value="admin">
+            <input type="hidden" name="rol" id="rol" name='rol' value="user">
             <div class="text-center mb-4">
                 <input type="submit" class="btn btn-info btn-lg" value="Registrarse" id="registrarse" name="registrarse">
                 <input type="reset" class="btn btn-info btn-lg" value="Borrar todo" id="borrar" name="borrar">
