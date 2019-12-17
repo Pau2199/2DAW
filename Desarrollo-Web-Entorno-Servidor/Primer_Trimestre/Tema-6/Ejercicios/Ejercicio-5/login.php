@@ -1,22 +1,27 @@
 <?php
+session_start();
 $error = false;
 if(isset($_POST['entrar'])){
-    if(strlen($_POST['contrasenya']) != 0  || strlen($_POST['nusuario']) != 0){
+    if(strlen($_POST['contrasenya']) != 0  || strlen($_POST['nsuario']) != 0){
         require_once 'conexionBD.php';
-        $consulta = $conexion->query('SELECT usuario , contrasenya FROM usuario WHERE usuario="'.$_POST['nsuario'].'"AND contrasenya"'.$_POST['contrasenya'].'"');
+        $consulta = $conexion->prepare('SELECT usuario , contrasenya, rol FROM usuario WHERE usuario= ? AND contrasenya = ?');
+        $consulta->bindParam(1, $_POST['nsuario']);
+        $consulta->bindParam(2, $_POST['contrasenya']);
+        $consulta->execute();
         $registro = $consulta->fetch();
         if($registro != null){
-            header('Location: inicio.php');
+            session_start();
+            $_SESSION['usuario'] = $_POST['nsuario'];
+            $_SESSION['contrasenya'] = $_POST['contrasenya'];
+            $_SESSION['rol'] = $registro['rol'];
+            header('Location: index.php');
         }else{
             $error = true;
 
         }
     }
 }
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +35,10 @@ if(isset($_POST['entrar'])){
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
+<!--
         <pre>POST => <?php print_r($_POST) ?></pre>
         <pre>Error => <?php $error ?></pre>
+-->
         <?php require_once 'cabeceraMenu.php' ?>
         <h3 class="titulo">Loguearse</h3>
         <form action="login.php" method="POST">
@@ -47,14 +54,15 @@ if(isset($_POST['entrar'])){
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="contrasenya">Contraseña</label>
                             <div class="cold-md-9 mt-1">
-                                <input type="text" name="contrasenya" id="contrasenya">
+                                <input type="password" name="contrasenya" id="contrasenya">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mb-4">
-                <input type="submit" class="btn btn-info btn-lg" value="Loguear" id="entrar" name="entrar">
+                <input type="submit" class="btn btn-info btn-lg" value="Loguear" id="entrar" name="entrar"><br>
+                <span style="visibility:<?= $error ? '' : 'hidden'?>"> Usuario o contraseña incorectos</span>
             </div>
         </form>
         <span>¿Aun no tienes cuenta? <a href="registro.php">Registrate ahora!</a></span>

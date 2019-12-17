@@ -1,4 +1,5 @@
 <?php
+session_start();
 $contrasenyaMal = false;
 $campoVacio = false;
 if(isset($_POST['registrarse'])){
@@ -42,7 +43,7 @@ if(isset($_POST['registrarse'])){
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
-        <pre>POST => <?php print_r($_POST) ?></pre>
+<!--        <pre>POST => <?php print_r($_POST) ?></pre>-->
         <?php require_once 'cabeceraMenu.php' ?>
         <h3 class="titulo">Formulario de Registro</h3>
         <?php if($contrasenyaMal) : ?>
@@ -114,7 +115,7 @@ if(isset($_POST['registrarse'])){
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="rol" id="rol" name='rol' value="user">
+            <input type="hidden" name="rol" id="rol" value="user">
             <div class="text-center mb-4">
                 <input type="submit" class="btn btn-info btn-lg" value="Registrarse" id="registrarse" name="registrarse">
                 <input type="reset" class="btn btn-info btn-lg" value="Borrar todo" id="borrar" name="borrar">
