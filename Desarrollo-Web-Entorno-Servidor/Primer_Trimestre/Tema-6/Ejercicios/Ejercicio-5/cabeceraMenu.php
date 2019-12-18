@@ -1,4 +1,4 @@
-   <div class="jumbotron hero">
+<div class="jumbotron hero">
     <div class="col">
         <h1>Tienda de Moviles Paüito</h1>
         <p>La mejor tienda </p>

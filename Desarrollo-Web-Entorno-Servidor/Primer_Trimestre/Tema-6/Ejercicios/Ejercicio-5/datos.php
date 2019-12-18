@@ -8,10 +8,6 @@ while($registro = $consulta->fetch(PDO::FETCH_NUM)){
     $datosArray [] = $registro;
 }
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,6 +21,7 @@ while($registro = $consulta->fetch(PDO::FETCH_NUM)){
     </head>
     <body>
         <?php require_once 'cabeceraMenu.php'?>
+        <?php if(isset($_SESSION['usuario']) && $_SESSION['rol'] == 'admin') : ?>
         <table class="table table-striped mt-3 text-center">
             <tr class="font-weight-bold">
                 <td>Nombre</td>
@@ -45,6 +42,6 @@ while($registro = $consulta->fetch(PDO::FETCH_NUM)){
             </tr>
             <?php endforeach ?>
         </table>
-
+        <?php endif ?>
     </body>
 </html>
