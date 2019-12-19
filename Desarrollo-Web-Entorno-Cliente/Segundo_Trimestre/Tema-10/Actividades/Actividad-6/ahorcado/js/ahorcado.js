@@ -1,4 +1,5 @@
 $(function(){
+    $('#opciones').css('display', 'block');
     $.getJSON('obtenerLetras.php', function (data){
         console.log(data);
         for(var i = 0 ; i < data.length ; i++){
@@ -6,14 +7,18 @@ $(function(){
             $('#panelLetras').append(div);
         }
     });
+    
     $('#manual').click(function(){
         $('#partidaPersonalizada').css('display', 'inline');
     });
+    
     $('#bbdd').click(function(){
-        $.getJSON('palabraAleatoria.php', function (data){
-            console.log(data);
-            empezarPartida(data[0]);
-        });
+         
+        $.post('palabraAleatoria.php',
+               $('#opciones').serialize(),
+               function(data){
+                    empezarPartida(data);
+                });
     });
     $('#empezar').click(function(evento){
         evento.preventDefault();
@@ -29,6 +34,7 @@ $(function(){
         $('#menuPartida').css('display', 'block');
         $('#laPalabra').css('display', 'block');
         $('#filaLetras').empty();
+
         for (var i = 0 ; i<palabra.length ; i++){
             $('#filaLetras').append($('<td>'));
         }
@@ -39,6 +45,10 @@ $(function(){
             var letraAcertada = false;
             $(this).css('background-color', 'red');
             $(this).off();
+            if(palabra.length >= 7){
+                $('img').attr('src', 'img/3.png');
+                intento = 3;
+            }
             for (var i = 0 ; i<palabra.length ; i++){
                 if(palabra[i] == $(this).html()){
                     $('#filaLetras td:nth-child('+(i+1)+')').append($(this).html());
@@ -51,14 +61,16 @@ $(function(){
                 intento++;
                 $('img').attr('src', 'img/'+intento+'.png');
                 if(intento == 9){
-                    $('#filaLetras').css('background-color', 'red');
+                    $('#filaLetras').css('background-color', 'rgb(255,0,0)');
+                    $('img').css('border', '5px solid rgb(255,0,0)');
                     rellenarPalabra(palabra);
                 }
             }else{
                 if(aciertos == palabra.length){
                     $('img').attr('src', 'img/win.png');
                     $('.grid-letra').off();
-                    $('#filaLetras').css('background-color', 'green');
+                    $('#filaLetras').css('background-color', 'rgb(54,255,0)');
+                    $('img').css('border', '5px solid rgb(54,255,0)');
                 }
             }
 
@@ -69,12 +81,16 @@ $(function(){
             evento.preventDefault();
             rellenarPalabra(palabra);
             if($('#solucion').val() == palabra){
-                $('#filaLetras').css('background-color', 'green');
+                $('#filaLetras').css('background-color', 'rgb(54,255,0)');
                 $('img').attr('src', 'img/win.png');
             }else{
-                $('#filaLetras').css('background-color', 'red');
+                $('#filaLetras').css('background-color', 'rgb(255,0,0)');
                 $('img').attr('src', 'img/9.png');
+
             }
+        })
+        $('#resetear').click(function(evento){
+            location.reload();
         })
 
     }
