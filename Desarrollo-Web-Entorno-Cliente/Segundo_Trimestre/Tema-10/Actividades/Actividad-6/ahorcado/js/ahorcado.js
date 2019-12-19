@@ -1,4 +1,3 @@
-//https://hdeleon.net/como-obtener-un-hijo-por-su-posicion-con-jquery-nth-child/
 $(function(){
     $.getJSON('obtenerLetras.php', function (data){
         console.log(data);
@@ -47,16 +46,45 @@ $(function(){
                     aciertos++;
                 }
             }
+
             if(letraAcertada == false){
                 intento++;
                 $('img').attr('src', 'img/'+intento+'.png');
+                if(intento == 9){
+                    $('#filaLetras').css('background-color', 'red');
+                    rellenarPalabra(palabra);
+                }
             }else{
                 if(aciertos == palabra.length){
                     $('img').attr('src', 'img/win.png');
+                    $('.grid-letra').off();
+                    $('#filaLetras').css('background-color', 'green');
                 }
             }
 
 
+        })
+
+        $('#acertar').click(function(evento){
+            evento.preventDefault();
+            rellenarPalabra(palabra);
+            if($('#solucion').val() == palabra){
+                $('#filaLetras').css('background-color', 'green');
+                $('img').attr('src', 'img/win.png');
+            }else{
+                $('#filaLetras').css('background-color', 'red');
+                $('img').attr('src', 'img/9.png');
+            }
+        })
+
+    }
+
+    function rellenarPalabra(palabra){
+        $('.grid-letra').off();
+        var letra = -1;
+        $('#filaLetras td').each(function(){
+            letra++;
+            $(this).html(palabra[letra]);
         })
     }
 
