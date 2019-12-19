@@ -7,18 +7,18 @@ $(function(){
             $('#panelLetras').append(div);
         }
     });
-    
+
     $('#manual').click(function(){
         $('#partidaPersonalizada').css('display', 'inline');
     });
-    
+
     $('#bbdd').click(function(){
-         
+
         $.post('palabraAleatoria.php',
                $('#opciones').serialize(),
                function(data){
-                    empezarPartida(data);
-                });
+            empezarPartida(data);
+        });
     });
     $('#empezar').click(function(evento){
         evento.preventDefault();
@@ -38,6 +38,13 @@ $(function(){
         for (var i = 0 ; i<palabra.length ; i++){
             $('#filaLetras').append($('<td>'));
         }
+        if(palabra.length >= 7){
+            $('img').attr('src', 'img/3.png');
+            intento = 3;
+        }else if(palabra.length <= 5){
+            var random = Math.floor(Math.random() * palabra.length)
+            $('#filaLetras td:nth-child('+(random+1)+')').append(palabra[random]);
+        }
 
         var intento = 1;
         var aciertos = 0;
@@ -45,10 +52,6 @@ $(function(){
             var letraAcertada = false;
             $(this).css('background-color', 'red');
             $(this).off();
-            if(palabra.length >= 7){
-                $('img').attr('src', 'img/3.png');
-                intento = 3;
-            }
             for (var i = 0 ; i<palabra.length ; i++){
                 if(palabra[i] == $(this).html()){
                     $('#filaLetras td:nth-child('+(i+1)+')').append($(this).html());
