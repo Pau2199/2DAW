@@ -6,7 +6,6 @@ if(isset($_POST['guardarIdioma'])){
     setcookie('idioma', $_POST['idiomas'], time()+3600);
     $idioma = $_POST['idiomas'];
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
