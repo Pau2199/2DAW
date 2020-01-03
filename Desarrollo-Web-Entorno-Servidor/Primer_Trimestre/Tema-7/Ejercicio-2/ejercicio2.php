@@ -1,6 +1,4 @@
 <?php
-
-
 $arrayIdiomas = ['es' => 'lang/es.inc.php', 'en' => 'lang/en.inc.php', 'val' => 'lang/val.inc.php'];
 setcookie('idioma', substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2), time()+3600);
 $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2); 
