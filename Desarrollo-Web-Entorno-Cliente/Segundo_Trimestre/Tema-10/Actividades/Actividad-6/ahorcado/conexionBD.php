@@ -1,7 +1,7 @@
 <?php
 $nombreBD = 'ahorcado';
-$nombreUsuario = 'root';
-$contrasenya = '';
+$nombreUsuario = 'ahorcado';
+$contrasenya = 'ahorcado';
 $ip = 'localhost';
 $opc = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 $error='';

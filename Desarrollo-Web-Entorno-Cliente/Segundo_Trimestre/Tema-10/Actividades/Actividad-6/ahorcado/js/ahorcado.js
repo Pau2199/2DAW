@@ -1,4 +1,5 @@
 $(function(){
+    //Carga toda la pagina al inicio y le muestras las opciones por si elige la palabra aleatoriamente, ademas genera el panel de letras.
     $('#opciones').css('display', 'block');
     $.getJSON('obtenerLetras.php', function (data){
         console.log(data);
@@ -7,28 +8,37 @@ $(function(){
             $('#panelLetras').append(div);
         }
     });
-
+    //Si hace click en introducir una palabra, aperece el formulario para que la introduzca
     $('#manual').click(function(){
         $('#partidaPersonalizada').css('display', 'inline');
     });
-
+    
+    //Si hace click en aleatoriamente , lo mando al archivo php con la dificultad que ha selecionado y devuelve una palabra correspondiente a la dificultad y empieza la partida.
     $('#bbdd').click(function(){
-
         $.post('palabraAleatoria.php',
                $('#opciones').serialize(),
                function(data){
-            empezarPartida(data);
+            var confPartida = {aleatorio: 'si', dificultad: $('#opciones').serialize().split('=')[1]}
+            console.log(confPartida);
+            empezarPartida(data,confPartida);
         });
     });
+    //Este boton empieza la partida cuando introduce la palabra manualmente.
     $('#empezar').click(function(evento){
         evento.preventDefault();
         var palabra = $('#campopalabra').val().trim();
         if(palabra.length != 0){
-            empezarPartida(palabra);
+            var confPartida = {aleatorio: 'no'}
+            empezarPartida(palabra, confPartida);
         }
     });
-    function empezarPartida(palabra){
+    
+/*    Esta función lo que hace es empezar la partida acorde a la configuración de la partida que ha elegido el usuario y oculta todo lo que ya no se necesita y muestra lo necesario
+    para jugar la partida*/
+    function empezarPartida(palabra, confPartida){
         console.log(palabra);
+        var intento = 1;
+        var aciertos = 0;
         $('#menuInicio').css('display', 'none');
         $('#partidaPersonalizada').css('display', 'none');
         $('#menuPartida').css('display', 'block');
@@ -38,16 +48,18 @@ $(function(){
         for (var i = 0 ; i<palabra.length ; i++){
             $('#filaLetras').append($('<td>'));
         }
-        if(palabra.length >= 7){
-            $('img').attr('src', 'img/3.png');
-            intento = 3;
-        }else if(palabra.length <= 5){
-            var random = Math.floor(Math.random() * palabra.length)
-            $('#filaLetras td:nth-child('+(random+1)+')').append(palabra[random]);
+        //Si ha elegido una configuración aleatoria , aqui se ejecuta esa configuración.
+        if(confPartida.aleatorio == 'si'){
+            if(confPartida.dificultad == 2){
+                $('img').attr('src', 'img/3.png');
+                intento = 3;
+            }else if(confPartida.dificultad == 1){
+                var random = Math.floor(Math.random() * palabra.length)
+                $('#filaLetras td:nth-child('+(random+1)+')').append(palabra[random]);
+                aciertos = 1;
+            }   
         }
-
-        var intento = 1;
-        var aciertos = 0;
+        //Una vez iniciada la partida , captura del click del panel de las letras y comprueba si ha acetado o fallado con la letra.
         $('.grid-letra').click(function(){
             var letraAcertada = false;
             $(this).css('background-color', 'red');
@@ -79,7 +91,7 @@ $(function(){
 
 
         })
-
+        //Comprueba que la palabra que ha escrito es correcta con la palabra que se esta jugando.
         $('#acertar').click(function(evento){
             evento.preventDefault();
             rellenarPalabra(palabra);
@@ -97,7 +109,7 @@ $(function(){
         })
 
     }
-
+    //Rellena la palabra en caso de que pierda la partida y en caso que la haya acertado
     function rellenarPalabra(palabra){
         $('.grid-letra').off();
         var letra = -1;
