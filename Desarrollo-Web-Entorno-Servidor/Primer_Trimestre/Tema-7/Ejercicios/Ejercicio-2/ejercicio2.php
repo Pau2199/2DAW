@@ -23,7 +23,7 @@ if(isset($_POST['guardarIdioma'])){
             </select>
             <input type="submit" value="Guardar Idioma" name="guardarIdioma">
         </form>
-        <?php require_once $arrayIdiomas[$idioma] ?>
+        <?php require_once $arrayIdiomas[$_COOKIE['idioma']] ?>
         
     </body>
 </html>

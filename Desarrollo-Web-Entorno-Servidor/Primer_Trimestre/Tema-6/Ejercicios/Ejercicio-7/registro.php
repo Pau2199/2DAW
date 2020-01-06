@@ -2,31 +2,36 @@
 session_start();
 $contrasenyaMal = false;
 $campoVacio = false;
+$capchar = false;
 if(isset($_POST['registrarse'])){
-    if(strlen($_POST['nombre']) != 0 || strlen($_POST['apellido1']) != 0 || strlen($_POST['apellido2']) != 0 || strlen($_POST['usuario']) != 0 || strlen($_POST['contrasenya']) != 0 || strlen($_POST['rcontrasenya']) != 0){
-        if($_POST['contrasenya'] == $_POST['rcontrasenya']){
-            $pass = $_POST['contrasenya'];
-            $pass = password_hash($pass, PASSWORD_BCRYPT);
-            require_once 'conexionBD.php';
-            try{
-                $consulta = $conexion->prepare('INSERT INTO usuario (nombre, pApellido, sApellido, fNacimiento, usuario, cElectronico, contrasenya, rol) VALUES (?,?,?,?,?,?,?,?);');
-                $consulta->bindParam(1, $_POST['nombre']);
-                $consulta->bindParam(2, $_POST['apellido1']);
-                $consulta->bindParam(3, $_POST['apellido2']);
-                $consulta->bindParam(4, $_POST['fnac']);
-                $consulta->bindParam(5, $_POST['usuario']);
-                $consulta->bindParam(6, $_POST['mail']);
-                $consulta->bindParam(7, $pass);
-                $consulta->bindValue(8, 'user');
-                echo $consulta->execute();
-            }catch(Exception $ex){
-                echo $ex->getMessage();
+    if(strlen($_POST['nombre']) != 0 || strlen($_POST['apellido1']) != 0 || strlen($_POST['apellido2']) != 0 || strlen($_POST['usuario']) != 0 || strlen($_POST['contrasenya']) != 0 || strlen($_POST['rcontrasenya']) != 0 || strlen($_POST['capchar']) != 0){
+        if($_POST['capchar'] == $_SESSION['captchar']){
+            if($_POST['contrasenya'] == $_POST['rcontrasenya']){
+                $pass = $_POST['contrasenya'];
+                $pass = password_hash($pass, PASSWORD_BCRYPT);
+                require_once 'conexionBD.php';
+                try{
+                    $consulta = $conexion->prepare('INSERT INTO usuario (nombre, pApellido, sApellido, fNacimiento, usuario, cElectronico, contrasenya, rol) VALUES (?,?,?,?,?,?,?,?);');
+                    $consulta->bindParam(1, $_POST['nombre']);
+                    $consulta->bindParam(2, $_POST['apellido1']);
+                    $consulta->bindParam(3, $_POST['apellido2']);
+                    $consulta->bindParam(4, $_POST['fnac']);
+                    $consulta->bindParam(5, $_POST['usuario']);
+                    $consulta->bindParam(6, $_POST['mail']);
+                    $consulta->bindParam(7, $pass);
+                    $consulta->bindValue(8, 'user');
+                    echo $consulta->execute();
+                }catch(Exception $ex){
+                    echo $ex->getMessage();
+                }
+            }else{
+                $contrasenyaMal = true;
             }
         }else{
-            $contrasenyaMal = true;
-        }
+            $capchar = true;
+        }   
     }else{
-        $campoVacio = true;
+        $campoVacio = true;  
     }
 }
 
@@ -52,6 +57,9 @@ if(isset($_POST['registrarse'])){
         <?php endif ?>
         <?php if($campoVacio) : ?>
         <div> No puede estar ningun campo vacio</div>
+        <?php endif ?>
+        <?php if($capchar) : ?>
+        <div> Has escrito el capchar de manera incorrecta</div>
         <?php endif ?>
         <form action="registro.php" method="POST">
             <div class="container">
@@ -113,6 +121,16 @@ if(isset($_POST['registrarse'])){
                                 </div>
                             </div>
                         </fieldset>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="contrasenya"><img src="capchar.php" alt="capchar"></label>
+                            <div class="cold-md-9 mt-4">
+                                <input type="text" name="capchar" id="capchar">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
