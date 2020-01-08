@@ -5,7 +5,10 @@ if(isset($_POST['guardarIdioma'])){
     $_SESSION['idioma'] = $_POST['idiomas'];
     header('Location: ejercicio2.php');
 }else{
-    $_SESSION['idioma'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2);
+    if(!isset($_SESSION['idioma'])){
+        $_SESSION['idioma'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2);
+
+    }
 }
 ?>
 <!DOCTYPE html>
