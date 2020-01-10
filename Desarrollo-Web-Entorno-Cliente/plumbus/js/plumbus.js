@@ -52,7 +52,7 @@ function create (){
     player = this.physics.add.sprite(100, 450, 'morty');
     player.setBounce(0);
     player.setCollideWorldBounds(true);
-
+    
     this.anims.create({
         key:'derecha',
         frames: this.anims.generateFrameNumbers('morty', {start:5, end:8}),
@@ -74,15 +74,27 @@ function create (){
     
     this.physics.add.collider(platforms, player);
     cursors = this.input.keyboard.createCursorKeys();
+    
+    plumbus = this.physics.add.group({
+       key:'plumbus',
+        repeat: 2
+    });
+    plumbus.children.iterate(function(child){
+        createPlumbus(child);
+    })
+    this.physics.add.collider(platforms, plumbus);
+    this.physics.add.overlap(plumbus, player, collectPlumbus, null, this);
+    scoreText = this.add.text(16,54,'Score: ' + score, {fontSize: '32px', fill: '#000'});
+    
 }
 
 function update(){
     if(cursors.left.isDown){
         player.anims.play('izquierda', true);
-        player.setVelocityX(-100);
+        player.setVelocityX(-150);
     }else if(cursors.right.isDown){
         player.anims.play('derecha', true);
-        player.setVelocityX(100);
+        player.setVelocityX(150);
     }else{
         player.anims.play('parado', false);
         player.setVelocityX(0);
@@ -92,4 +104,16 @@ function update(){
         player.setVelocityY(-340);
     }
 
+}
+
+function createPlumbus(plumbus){
+    plumbus.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+    plumbus.x = Phaser.Math.Between(10, 790);
+    plumbus.y = posicionesY[Phaser.Math.Between(0,2)];
+}
+
+function collectPlumbus(player, plumb){
+    plumb.disableBody(true, true);
+    score += 10*nivel;
+    scoreText.setText('Score: ' + score);
 }
