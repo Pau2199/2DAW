@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+body {
+	margin: 0;
+	background-color: #2196F3;
+}
+
+#header { grid-area: header; }
+#menu { grid-area: menu; }
+#partida { grid-area: partida; }
+#abecedario { grid-area: abecedario; }
+#letras { grid-area: letras; }
+#footer { grid-area: footer; }
+
+#header {
+	text-align: center;
+	font-size: 3.5em;
+	font-weight: bold;
+	padding: 0;
+}
+.centrado {
+	text-align: center;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto 20%;
+	/*grid-template-rows: 50px 1fr 30px;*/
+	grid-template-areas:
+		'header header'
+		'menu menu'
+		'partida abecedario'
+		'letras letras'
+		'footer footer';
+	grid-gap: 1.5%;
+	background-color: #2196F3;
+	margin: 0;
+	padding: .5em 10%;
+	height: 100%;
+}
+
+.grid-container > div {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: .8em 10%;
+	grid-template-areas: 'infoCurso autor';
+}
+
+
+#infoCurso { grid-area: infoCurso; }
+#autor { grid-area: autor; }
+
+#footer {
+	display: grid;
+	grid-template-columns: auto 20%;
+}
+#infoCurso {
+	
+}
+#autor {
+	text-align: right;
+}
+
+#menuPartida, #partidaPersonalizada, #laPalabra, #opciones {
+	display: none;
+}
+
+button {
+	background-color: rgb(100,100,230);
+	border-radius: .5em;
+	border: solid .1em rgb(25,25,100);
+	margin: 0;
+	padding: .2em .8em;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+button:first-child {
+	margin-right: 2em;
+}
+button:last-child {
+	margin-left: 2em;
+}
+button:hover {
+	background-color: rgb(200,200,255);
+	color: black;
+}
+
+#partidaPersonalizada {
+	margin: .8em 0 0 0;
+}
+
+#palabra {
+	width: 100%;
+}
+#palabra td {
+	border: solid black .1em;
+	height: 4em;
+	width: auto;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#partida img {
+	height: 400px;
+	height: 25em;
+	width: auto;
+}
+
+.grid-abecedario {
+	height: 50%;
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-gap: 1.5%;
+}
+.grid-letra {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	text-align: center;
+	padding: auto;
+	cursor: pointer;
+}
+
+#laPalabra {
+	margin-bottom: .6em;
+	font-size: 1.6em;
+}
+#solucion, #acertar {
+	font-size: 1em;
+}
+
+#extra {
+	display: inline-block;
+}
+#opciones {
+	margin-left: 1em;
+}
+.dificultad {
+	margin: 0 .5em 0 0;
+}

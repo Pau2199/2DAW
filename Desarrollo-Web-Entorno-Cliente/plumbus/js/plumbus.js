@@ -84,8 +84,16 @@ function create (){
     })
     this.physics.add.collider(platforms, plumbus);
     this.physics.add.overlap(plumbus, player, collectPlumbus, null, this);
+    
     scoreText = this.add.text(16,54,'Score: ' + score, {fontSize: '32px', fill: '#000'});
     
+    portalgun = this.physics.add.image(Phaser.Math.Between(10, 799), posicionesY[Phaser.Math.Between(0,2)], 'portalgun');
+    portal = this.physics.add.image(400,400, 'portal');
+    portal.disableBody(true, true);
+    this.physics.add.collider(platforms, portal);
+    this.physics.add.collider(platforms, portalgun);
+    this.physics.add.overlap(platforms, portal, hitportal, null, this);
+    this.physics.add.overlap(platforms, portalgun, hitPistola, null, this);
 }
 
 function update(){
@@ -117,3 +125,5 @@ function collectPlumbus(player, plumb){
     score += 10*nivel;
     scoreText.setText('Score: ' + score);
 }
+
+function hitPistola
