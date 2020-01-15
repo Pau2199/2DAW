@@ -1,8 +1,13 @@
 @charset "utf-8";
 
 body {
+<<<<<<< Updated upstream
 	margin: 0;
 	background-color: #2196F3;
+=======
+    margin: 0;
+    background-color: #2196F3;
+>>>>>>> Stashed changes
 }
 
 #header { grid-area: header; }
@@ -13,6 +18,7 @@ body {
 #footer { grid-area: footer; }
 
 #header {
+<<<<<<< Updated upstream
 	text-align: center;
 	font-size: 3.5em;
 	font-weight: bold;
@@ -43,6 +49,38 @@ body {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: .8em 10%;
 	grid-template-areas: 'infoCurso autor';
+=======
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: bold;
+    padding: 0;
+}
+.centrado {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 20%;
+    /*grid-template-rows: 50px 1fr 30px;*/
+    grid-template-areas:
+        'header header'
+        'menu menu'
+        'partida abecedario'
+        'letras letras'
+        'footer footer';
+    grid-gap: 1.5%;
+    background-color: #2196F3;
+    margin: 0;
+    padding: .5em 10%;
+    height: 100%;
+}
+
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: .8em 10%;
+    grid-template-areas: 'infoCurso autor';
+>>>>>>> Stashed changes
 }
 
 
@@ -50,6 +88,7 @@ body {
 #autor { grid-area: autor; }
 
 #footer {
+<<<<<<< Updated upstream
 	display: grid;
 	grid-template-columns: auto 20%;
 }
@@ -137,4 +176,120 @@ button:hover {
 }
 .dificultad {
 	margin: 0 .5em 0 0;
+=======
+    display: grid;
+    grid-template-columns: auto 20%;
+}
+#infoCurso {
+
+}
+#autor {
+    text-align: right;
+}
+
+#menuPartida, #partidaPersonalizada, #laPalabra, #opciones {
+    display: none;
+}
+
+button {
+    background-color: rgb(100,100,230);
+    border-radius: .5em;
+    border: solid .1em rgb(25,25,100);
+    margin: 0;
+    padding: .2em .8em;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+button:first-child {
+    margin-right: 2em;
+}
+button:last-child {
+    margin-left: 2em;
+}
+button:hover {
+    background-color: rgb(200,200,255);
+    color: black;
+}
+
+#partidaPersonalizada {
+    margin: .8em 0 0 0;
+}
+
+#palabra {
+    width: 100%;
+}
+#palabra td {
+    border: solid black .1em;
+    height: 4em;
+    width: auto;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#partida img {
+    height: 400px;
+    height: 25em;
+    width: auto;
+}
+
+.grid-abecedario {
+    height: 50%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 1.5%;
+}
+.grid-letra {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: auto;
+    cursor: pointer;
+}
+.grid-letra:hover{
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+#laPalabra {
+    margin-bottom: .6em;
+    font-size: 1.6em;
+}
+#solucion, #acertar {
+    font-size: 1em;
+}
+
+#extra {
+    display: inline-block;
+}
+#opciones {
+    margin-left: 1em;
+}
+.dificultad {
+    margin: 0 .5em 0 0;
+}
+.mensaje{
+    text-align: center;
+    display: none;
+    animation: mensaje 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes mensaje {
+    0% { transform: scale(1);}
+    50% { transform: scale(20)}
+    100% { transform: scale(1)}
+>>>>>>> Stashed changes
 }

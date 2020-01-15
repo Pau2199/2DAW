@@ -12,7 +12,11 @@ $(function(){
     $('#manual').click(function(){
         $('#partidaPersonalizada').css('display', 'inline');
     });
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     //Si hace click en aleatoriamente , lo mando al archivo php con la dificultad que ha selecionado y devuelve una palabra correspondiente a la dificultad y empieza la partida.
     $('#bbdd').click(function(){
         $.post('palabraAleatoria.php',
@@ -32,8 +36,13 @@ $(function(){
             empezarPartida(palabra, confPartida);
         }
     });
+<<<<<<< Updated upstream
     
 /*    Esta función lo que hace es empezar la partida acorde a la configuración de la partida que ha elegido el usuario y oculta todo lo que ya no se necesita y muestra lo necesario
+=======
+
+    /*    Esta función lo que hace es empezar la partida acorde a la configuración de la partida que ha elegido el usuario y oculta todo lo que ya no se necesita y muestra lo necesario
+>>>>>>> Stashed changes
     para jugar la partida*/
     function empezarPartida(palabra, confPartida){
         console.log(palabra);
@@ -98,6 +107,10 @@ $(function(){
             if($('#solucion').val() == palabra){
                 $('#filaLetras').css('background-color', 'rgb(54,255,0)');
                 $('img').attr('src', 'img/win.png');
+<<<<<<< Updated upstream
+=======
+                $('.mensaje').css('display', 'inline');
+>>>>>>> Stashed changes
             }else{
                 $('#filaLetras').css('background-color', 'rgb(255,0,0)');
                 $('img').attr('src', 'img/9.png');
@@ -116,6 +129,10 @@ $(function(){
         $('#filaLetras td').each(function(){
             letra++;
             $(this).html(palabra[letra]);
+<<<<<<< Updated upstream
+=======
+            $(this).addClass('mover');
+>>>>>>> Stashed changes
         })
     }
 
