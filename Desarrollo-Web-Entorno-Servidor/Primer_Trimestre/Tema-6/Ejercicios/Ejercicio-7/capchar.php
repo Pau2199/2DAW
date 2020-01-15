@@ -1,25 +1,29 @@
 <?php
 session_start();
+    $colorFondo = [mt_rand(0,255),mt_rand(0,255),mt_rand(0,255)];
+do {
+    $colorTexto = [mt_rand(0,255),mt_rand(0,255),mt_rand(0,255)];
+} while (empty(array_diff($colorFondo, $colorTexto)));
 $imagen = imagecreatetruecolor(200, 90);
-$colorFondo = imagecolorallocate($imagen, mt_rand(0,255),mt_rand(0,255),mt_rand(0,255));
+$colorFondo = imagecolorallocate($imagen, $colorFondo[0],$colorFondo[1],$colorFondo[2]);
 imagefill($imagen, 0, 0 , $colorFondo); 
-$colortexto = imagecolorallocate($imagen, mt_rand(0,255),mt_rand(0,255),mt_rand(0,255));
 $fontFamily = __DIR__ . '/arial.ttf';
-imagettftext($imagen, 30, mt_rand(-40, 0),mt_rand(20,40),mt_rand(20,50), $colortexto, $fontFamily, generarCodigoCaptchar());
+$colorTexto = imagecolorallocate($imagen, $colorTexto[0],$colorTexto[1],$colorTexto[2]);
+imagettftext($imagen, 30, mt_rand(-10, 10),mt_rand(10,35),45, $colorTexto,$fontFamily, generarCodigoCaptchar());
 header('Content-Type: imagen/png');
 imagepng($imagen);
 imagedestroy($imagen);  
 
 function generarCodigoCaptchar(){
 
-    $res="";
-    $valores="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    
+    $random="";
+    $caracteres=array_merge(range('A', 'Z'),range('a', 'z'), range(0,9));
+
     for($i=0; $i<5; $i++){
-        $res.=$valores{mt_rand(0,62)};
+        $random.=$caracteres[array_rand($caracteres)];
     }
-    $_SESSION['captchar'] = $res;
-    return $res;
+    $_SESSION['captchar'] = $random;
+    return $random;
 }
 
 ?>
