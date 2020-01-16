@@ -25,12 +25,13 @@ var portal;
 var platforms;
 var cursors;
 var score = 0;
-var gameOver = false;
+var gameOver;
 var scoreText;
 var levelText;
+var textoGameOver = 'GAME OVER';
 var nivel = 1;
 var posicionesY = [400, 250,200];
-
+var puntuacion = [];
 function preload(){
     this.load.image('fondo', '/assets/fondo.png');
     this.load.image('fondoNegro', '/assets/fondonegro.png');
@@ -101,9 +102,15 @@ function create (){
     this.physics.add.collider(platforms, timecops);
     this.physics.add.overlap(player, timecops, hitTimecops, null, this);
 
+
+
+
 }
 
 function update(){
+    if(gameOver){
+        return;
+    }
     if(cursors.left.isDown){
         player.anims.play('izquierda', true);
         player.setVelocityX(-150);
@@ -119,9 +126,7 @@ function update(){
         player.setVelocityY(-340);
     }
 
-    if(gameOver){
-        return;
-    }
+
 
 }
 
@@ -169,4 +174,40 @@ function hitTimecops(player, timecops){
     player.setTint(0xff0000);
     player.anims.play('turn');
     gameOver = true;
+    this.add.image(400, 300, 'fondoNegro');
+    this.add.text(120,230,'GAME OVER', {fontSize: '100px', fill: 'red', fontFamily: '"Tahoma"'});
+    this.add.text(300, 350, 'Puntuación Obtenida: ' + score , {fontSize: '52px;', fill: 'white'});
+    scoreGuardado();
+    var altura = 400;
+    for (var i = 0 ; i<puntuacion.length ; i++){
+        this.add.text(350, altura+=20, (i+1) + 'º -- '+ puntuacion[i], {fontSize: '22px;', fill: 'white'});
+    }
+}
+
+function scoreGuardado(){
+    if(localStorage.getItem('puntuacion') != null){
+        puntuacion = localStorage.getItem('puntuacion');
+        puntuacion = JSON.parse(puntuacion);
+        if(puntuacion.length == 5){
+            if(puntuacion[4] < score){
+                puntuacion[4] = score;
+            }
+        }else{
+            puntuacion.push(score);   
+        }
+        for(var i = 0 ; i < 5; i++){
+            for (var j = 0 ; j<5; j++){
+                if(puntuacion[i] > puntuacion[j]){
+                    var aux = puntuacion[i];
+                    puntuacion[i] = puntuacion[j];
+                    puntuacion[j] = aux;
+                }
+            }
+        }
+        console.log(puntuacion);
+        localStorage.setItem('puntuacion',JSON.stringify(puntuacion));
+    }else{
+        puntuacion.push(score);
+        localStorage.setItem('puntuacion', JSON.stringify(puntuacion));
+    }
 }
