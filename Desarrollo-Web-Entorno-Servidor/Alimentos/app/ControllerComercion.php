@@ -7,7 +7,7 @@ class ControllerComercion{
                        Config::$mvc_bd_clave,
                        Config::$mvc_bd_hostname);
         $params = ['cupones' =>$m->dameCupones()];
-        require __DIR__ . 'templates/cupones.php';
+        require __DIR__ . '/templates/cupones.php';
     }
 }
 ?>

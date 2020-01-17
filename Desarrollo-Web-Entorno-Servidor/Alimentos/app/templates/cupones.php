@@ -8,12 +8,12 @@
         <th>comercion</th>
     </tr>
 
-    <?php foreach ($params['cupones'] as $alimento) : ?>
+    <?php foreach ($params['cupones'] as $cupon) : ?>
     <tr>
-        <td><?= $alimento['id'] ?></td>
-        <td><?= $alimento['codigo'] ?></td>
-        <td><?= $alimento['valor'] ?></td>
-        <td><?= $alimento['comercio'] ?></td>
+        <td><?= $cupon['id'] ?></td>
+        <td><?= $cupon['codigo'] ?></td>
+        <td><?= $cupon['valor'] ?></td>
+        <td><?= $cupon['comercion'] ?></td>
     </tr>
     <?php endforeach ?>
 </table>
