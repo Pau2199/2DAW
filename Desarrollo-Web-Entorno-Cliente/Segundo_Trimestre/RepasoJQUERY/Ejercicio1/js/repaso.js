@@ -11,23 +11,25 @@ $(function(){
             $('#contenedor').append(div);
         }    
     })
-    $('#contenedor').on('mouseenter','div',function(){
+    $('#contenedor').on('hover','div',function(){
+        console.log('prueba')
         var imagen = $(this);
-        $.post({url: 'obtenerInformaciónCoche.php',
-               data: {'id' : $(this).attr('id').split('f')[1]},
-               success: function(data){
-                data = JSON.parse(data);
-               var div = $('<div>').append('Marca : ' + data.nombre +
-                                           ' Modelo: ' + data.modelo +
-                                           ' Precio: ' + data.precio)
-               div.attr('id', 'texto');
-               imagen.append(div);
-                                          
-            },
-         dateType: 'json'
-               })
-    })
-    $('#contenedor').on('mouseover', '#texto', function(){
-        $(this).remove();
+        if($(this).attr('id') != 'texto'){
+            $.post({url: 'obtenerInformaciónCoche.php',
+                    data: {'id' : $(this).attr('id').split('f')[1]},
+                    success: function(data){
+                        data = JSON.parse(data);
+                        var div = $('<div>').append('Marca : ' + data.nombre +
+                                                    ' Modelo: ' + data.modelo +
+                                                    ' Precio: ' + data.precio)
+                        div.attr('id', 'texto');
+                        imagen.append(div);
+                        $('#texto').hide();
+                        $('#texto').fadeIn('slow');
+
+                    },
+                    dateType: 'json'
+                   })
+        }
     })
 });
