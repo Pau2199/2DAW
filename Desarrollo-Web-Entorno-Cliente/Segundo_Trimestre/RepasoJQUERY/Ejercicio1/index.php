@@ -8,7 +8,7 @@
                 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
                 crossorigin="anonymous">
         </script>
-        <script src="js/repaso.js"></script>
+        <script src="js/ejercicio1.js"></script>
         <link href="css/estilo.css" type="text/css" rel="stylesheet">
     </head>
     <body>
