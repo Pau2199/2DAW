@@ -1,25 +1,27 @@
 $(function(){
     var todosPersonajes = JSON.parse(personajes);
-    document.addEventListener('scroll', cargarImagenes);
     var cantidad = 5;
     var vez = 0;
     traerPersonajes(todosPersonajes, cantidad, vez++);
-
-    function cargarImagenes(){
-        var waypoint = new Waypoint({
-            element: $('#footer'),
-            hadler: function(direction){
-                alert('Cargando mas Imagenes');
+    var waypoint = new Waypoint({
+        element: $('footer'),
+        handler: function(direction){
+            if(direction == 'down'){
+                console.log('cargando mas imagenes');
+                console.log(screen.height)
+                console.log($('footer').height())
                 traerPersonajes(todosPersonajes, cantidad, vez++);
-            },
-            offset: 500
-        });
-
+            }
+        },
+        offset: screen.height
+    });
+    function cargarImagenes(){
     }
 
 
 
     function traerPersonajes(todosPersonajes, cantidad, vez){
+        console.log(screen.height);
         var primero = cantidad * vez;
         var ultimo = cantidad*(vez+1);
 
@@ -54,9 +56,6 @@ $(function(){
 
 
         }
-
-
-
     }
 
 })
