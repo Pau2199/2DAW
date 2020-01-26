@@ -11,21 +11,29 @@ $(function(){
                 type: 'text',
                 id: 'inputGenerado',
                 name: 'inputGenerado',
-                value: $(this).html()
+                value: $(this).html(),
             });
             $(this).html('')
-            $(this).append(input);   
+            $(this).append(input);
+            input.focus();
+            input.select();
         }
     })
 
     $('div').on('blur', 'span', function(){
         $.post({url: 'modificarDato.php',
-                data: {idAlumno: localStorage.getItem('idAlumno'), valorNuevo: ('#inputGenerado').html()},
+                data: {idAlumno: localStorage.getItem('idAlumno'), valorNuevo: $('#inputGenerado').val(), campoParaModificar: $(this).attr('id')},
                 success: function(data){
-
+                    console.log(data);
+                    if(data.error == true){
+                        $('#inputGenerado').parent().html($('#inputGenerado').val());
+                        $('#inputGenerado').remove();
+                    }else{
+                        $('#inputGenerado').parent().html(localStorage.getItem('valorInput'));
+                        $('#inputGenerado').remove();
+                    }
                 },
                 dataType: 'json'
-
                })
     })
 })
