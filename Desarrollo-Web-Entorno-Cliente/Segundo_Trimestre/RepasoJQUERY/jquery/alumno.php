@@ -8,7 +8,7 @@
                 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
                 crossorigin="anonymous">
         </script>
-        <script src="js/jquery.js"></script>
+        <script src="js/otraForma.js"></script>
     </head>
     <body>
 
