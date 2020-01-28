@@ -7,7 +7,8 @@ $(function(){
         var form = $('<form>').attr('id', 'cambiarDato');
         var input = $('<input>').attr({
             type: 'text',
-            name: 'valorACambiar'
+            id: 'valorACambiar',
+            name: 'valorNuevo'
         })
         form.append(input);
         input =  $('<input>').attr({
@@ -18,12 +19,26 @@ $(function(){
         form.append(input);
         input = $('<input>').attr({
             type: 'hidden',
-            name: 'campoCambiar',
+            name: 'campoParaModificar',
             value: $(this).attr('id')
         });
-        form.css('float', 'right');
         form.append(input);
         $(this).html('');
         $(this).append(form);
     });
+
+    $('form').on('blur', '#cambiarDato', function(){
+        $.post('modificarDato.php',
+               $('#cambiarDato').serialize(),
+               function(data){
+            if(data.filasAfectadas != 0){
+                $('#cambiarDato').parent().html($('#cambiarDato').children()[0].val());
+                $('#cambiarDato').remove();
+            }else{
+/*                $('#inputGenerado').parent().html();
+                $('#inputGenerado').remove();*/
+            }
+        })
+    })
+
 });

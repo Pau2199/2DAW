@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-    xmlns:tns="http://127.0.0.1/php_soapclient_example"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    name="MyDefinition"
-    targetNamespace="http://127.0.0.1/php_soapclient_example">
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://127.0.0.1/php_soapclient_example"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             name="MyDefinition"
+             targetNamespace="http://127.0.0.1/php_soapclient_example">
 
     <message name="stringParam">
         <part name="reqParam" type="xsd:string" />
