@@ -14,17 +14,13 @@ var_dump($client->__getTypes());
     </head>
     <body>
         <form action="handle_soap_request.php">
-            <label for="num1">Primer Numero: </label>
-            <input type="number" name="num1" id="num1">
-            <label for="num2">Segundo Numero: </label>
-            <input type="number" name="num2" id="num2">
-            <select name="action" id="opcion">
-                <option value="dividir">Dividir</option>
-                <option value="resta">Resta</option>
-                <option value="suma">Suma</option>
-                <option value="multiply">Multiplicar</option>
-            </select>
-            <input type="submit">
+            <label for="insertar">Insertar Datos</label>
+            <input onClick="insertarDatos()" type="radio" name="action" id="insertar" value="insert">
+            <input type="hidden" name="value" id="dato">
+            <label for="leer">Leer Datos</label>
+            <input type="radio" name="action" id="leer" value="read">
+            <input type="hidden" name="mode" id="mode" value="no_wsdl">
+            <input type="submit" value="enviar" name="enviar">   
         </form>
         <script>
             function insertarDatos(){

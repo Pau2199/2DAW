@@ -1,12 +1,9 @@
- <?php
+<?php
 
 /**
  * Methods for dealing with SOAP service.
  */
 class SimpleSoapClient {
-
-    const MODE_WSDL = 'wsdl';
-    const MODE_NO_WSDL = 'no_wsdl';
 
     private $client;
 
@@ -16,60 +13,52 @@ class SimpleSoapClient {
      * @param $soapMode The SOAP mode, WSDL or non-WSDL.
      * @param $serverLocation The location of server.
      */
-    public function __construct($soapMode, $serverLocation) {
-        $this->initializeClient($soapMode, $serverLocation);
+    public function __construct($serverLocation) {
+        $this->client = new SoapClient($serverLocation);
     }
 
     /**
-     * Instantiates the SoapClient, depending on the specified mode.
+     * Multiplica dos numeros.
      *
-     * For WSDL, it just has to be instantiated with the location of the service, which actually has to be the
-     * .wsdl location.
-     *
-     * For non-WSDL, the first parameter of the constructor has to be null; and the second, an array specifying
-     * both location and URI (which can be the same, the important parameter is the location).
+     * @param $num1 , $num2 son los numeros que haran la operacion.
+     * @return devuelve la operacion realizada.
      */
-    protected function initializeClient($soapMode, $serverLocation) {
-        switch ($soapMode) {
-            case self::MODE_WSDL:
-                $this->client = new SoapClient($serverLocation);
-
-                break;
-
-            case self::MODE_NO_WSDL:
-                $options = array(
-                    'location' => $serverLocation,
-                    'uri' => $serverLocation
-                );
-
-                $this->client = new SoapClient(NULL, $options);
-
-                break;
-
-            default:
-                throw new Exception('Error: invalid SOAP mode provided.');
-                break;
-        }
-    }
-
-    /**
-     * Inserts data remotely into the SOAP service.
-     *
-     * @param $data Data to insert remotely.
-     * @return Response from remote service.
-     */
-    public function insertData($data) {
-        $response = $this->client->insertData($data);
-
+    public function multiplicar($num1 , $num2) {
+        $response = $this->client->Multiply($num1 , $num2);
         return $response;
     }
 
     /**
-     * Reads data from SOAP service.
+     * Resta dos numeros.
      *
-     * @return Data received from remote service.
+     * @param $num1 , $num2 son los numeros que haran la operacion.
+     * @return devuelve la operacion realizada.
      */
-    public function readData() {
-        return $this->client->readData();
+    public function resta($num1 , $num2) {
+        $response = $this->client->Subtract($num1 , $num2);
+        return $response;
+    }
+
+    /**
+     * Suma dos numeros.
+     *
+     * @param $num1 , $num2 son los numeros que haran la operacion.
+     * @return devuelve la operacion realizada.
+     */
+    public function suma($num1 , $num2) {
+        $response = $this->client->Add($num1 , $num2);
+        return $response;
+    }
+
+    /**
+     * Divide dos numeros.
+     *
+     * @param $num1 , $num2 son los numeros que haran la operacion.
+     * @return devuelve la operacion realizada.
+     */
+
+    public function dividir($num1 , $num2) {
+        $response = $this->client->Divide($num1 , $num2);
+        return $response;
     }
 }

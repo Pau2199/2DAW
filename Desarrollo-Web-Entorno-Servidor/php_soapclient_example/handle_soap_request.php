@@ -3,15 +3,15 @@
 require_once('simple_soap_client_class.php');
 
 // GET parameter definition.
-define('ACTION_INSERT', 'insert');
-define('ACTION_READ', 'read');
-define('INSERT_VALUE', 'value');
-define('MODE_WSDL', 'wsdl');
-define('MODE_NO_WSDL', 'no_wsdl');
+define('MULTIPLY', 'multiply');
+define('DIVIDIR', 'dividir');
+define('SUMAR', 'suma');
+define('RESTAR', 'resta');
+define('VALOR1', 'num1');
+define('VALOR2', 'num2');
 
 // Server location definition.
-define('LOCATION_WSDL', 'http://localhost.soap/wsdl/simple_service_definition.wsdl');
-define('LOCATION_NO_WSDL', 'http://localhost.soap/no_wsdl/server_endpoint.php');
+define('LOCATION', 'http://www.dneonline.com/calculator.asmx?WSDL');
 
 // Function definitions.
 
@@ -34,15 +34,11 @@ function checkGETParametersOrDie($parameters) {
  * @param $mode The SOAP mode, 'wsdl' or 'no_wsdl'.
  * @return SoapClient class instance.
  */
-function instantiateSoapClient($mode) {
-    if ($mode == MODE_WSDL) {
-        $serverLocation = LOCATION_WSDL;
-    } else {
-        $serverLocation = LOCATION_NO_WSDL;
-    }
+function instantiateSoapClient() {
 
+    $serverLocation = LOCATION;
     try {
-        $soapClient = new SimpleSoapClient($mode, $serverLocation);
+        $soapClient = new SimpleSoapClient($serverLocation);
     } catch (Exception $exception) {
         die('Error initializing SOAP client: ' . $exception->getMessage());
     }
@@ -52,38 +48,56 @@ function instantiateSoapClient($mode) {
 
 // Flow starts here.
 
-checkGETParametersOrDie(['mode', 'action']);
+checkGETParametersOrDie(['action']);
 
-$mode = $_GET['mode'];
 $action = $_GET['action'];
 
-$soapClient = instantiateSoapClient($mode);
-
-switch($action) {
-    case ACTION_INSERT:
-        checkGETParametersOrDie([INSERT_VALUE]);
-        $value = $_GET[INSERT_VALUE];
+checkGETParametersOrDie([VALOR1, VALOR2]);
+$value1 = $_GET['num1'];
+$value2 = $_GET['num2'];  
+$soapClient = instantiateSoapClient();
+switch($action) { 
+    case MULTIPLY:
 
         try {
-            $response = $soapClient->insertData($value);
-            echo "Response from SOAP service: $response<br>";
+            $response = $soapClient->multiplicar($value1, $value2);
+            echo "Response from SOAP service: $response->MultiplyResult<br>";
         } catch (Exception $exception) {
             die('Error inserting into SOAP service: ' . $exception->getMessage());
         }
 
         break;
 
-    case ACTION_READ:
+    case SUMAR:
+
         try {
-            $data = $soapClient->readData();
-            echo "Received data from SOAP service:<br>";
-            echo $data;
+            $response = $soapClient->suma($value1, $value2);
+            echo "Response from SOAP service: $response->AddResult<br>";
         } catch (Exception $exception) {
-            die('Error reading from SOAP service: ' . $exception->getMessage());
+            die('Error inserting into SOAP service: ' . $exception->getMessage());
         }
 
         break;
+    case DIVIDIR:
 
+        try {
+            $response = $soapClient->dividir(intval($value1), intval($value2));
+            echo "Response from SOAP service: $response->DivideResult<br>";
+        } catch (Exception $exception) {
+            die('Error inserting into SOAP service: ' . $exception->getMessage());
+        }
+
+        break;
+    case RESTAR:
+
+        try {
+            $response = $soapClient->resta($value1, $value2);
+            echo "Response from SOAP service: $response->SubtractResult<br>";
+        } catch (Exception $exception) {
+            die('Error inserting into SOAP service: ' . $exception->getMessage());
+        }
+
+        break;
     default:
         die('Invalid "action" specified.');
         break;
