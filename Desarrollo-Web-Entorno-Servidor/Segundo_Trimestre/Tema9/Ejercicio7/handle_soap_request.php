@@ -2,18 +2,6 @@
 
 require_once('simple_soap_client_class.php');
 
-// GET parameter definition.
-define('MULTIPLICAR', 'multiplicar');
-define('DIVIDIR', 'dividir');
-define('SUMAR', 'suma');
-define('RESTAR', 'resta');
-define('RAIZ_CUADRADA', 'raiz_cuadrada');
-define('SENO', 'seno');
-define('COSENO', 'coseno');
-define('TANGENTE', 'tangente');
-define('VALOR1', 'num1');
-define('VALOR2', 'num2');
-
 // Server location definition.
 define('LOCATION', 'http://localhost.servidor/Ejercicio6/php_soapclient_example/no_wsdl/server_endpoint.php');
 
@@ -54,7 +42,7 @@ checkGETParametersOrDie(['action']);
 
 $action = $_GET['action'];
 
-checkGETParametersOrDie([VALOR1, VALOR2]);
+checkGETParametersOrDie(['num1', 'num2']);
 $value1 = $_GET['num1'];
 $value2 = $_GET['num2'];  
 $soapClient = instantiateSoapClient();
